@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services | FreshFlow Luxury Laundry & Dry Cleaning</title>
+  <meta name="description" content="Explore our full suite of 12+ luxury laundry, dry cleaning, steam ironing, shoe restoration and commercial garment care services.">
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%230EA5E9' d='M50 5 C50 5 15 50 15 70 A35 35 0 0 0 85 70 C85 50 50 5 50 5 Z'/><circle cx='40' cy='60' r='6' fill='%23FFFFFF' opacity='0.7'/></svg>" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div id="page-loader">
+    <div class="loader-drum"></div>
+    <p class="text-white mt-4 fw-bold font-heading">SERVICES CATALOG</p>
+  </div>
+
+  <canvas id="bubbles-canvas"></canvas>
+
+  <!-- Navbar -->
+  <nav class="navbar fresh-navbar">
+    <div class="container-fluid px-3 px-xl-5 d-flex align-items-center justify-content-between flex-nowrap">
+      <a href="index.html" class="navbar-brand-logo">
+        <i class="bi bi-droplet-half text-info"></i> FreshFlow
+      </a>
+      
+      <ul class="navbar-nav d-none d-xl-flex flex-row flex-nowrap gap-2">
+        <li class="nav-item"><a href="index.html" class="nav-link-custom">Home 1</a></li>
+        <li class="nav-item"><a href="index2.html" class="nav-link-custom">Home 2</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link-custom">About</a></li>
+        <li class="nav-item"><a href="services.html" class="nav-link-custom active">Services</a></li>
+        <li class="nav-item"><a href="pricing.html" class="nav-link-custom">Pricing</a></li>
+        <li class="nav-item"><a href="tracking.html" class="nav-link-custom">Track Order</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link-custom">Contact</a></li>
+      </ul>
+
+      <div class="nav-cta-group d-none d-xl-flex align-items-center flex-nowrap gap-2">
+        <button class="btn btn-sm btn-outline-info rounded-circle p-2" id="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          <i class="bi bi-moon-stars-fill fs-6" id="theme-toggle-icon"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-info rounded-pill px-2 py-1 fw-semibold me-1" id="rtl-toggle-btn" title="Toggle RTL (Right-To-Left)" aria-label="Toggle RTL">
+          <i class="bi bi-translate me-1"></i> <span id="rtl-toggle-text">RTL</span>
+        </button>
+        <a href="login.html" class="btn btn-fresh-outline py-2 px-3">Login</a>
+        <a href="dashboard.html" class="btn btn-fresh-primary py-2 px-3"><i class="bi bi-speedometer2"></i> Dashboard</a>
+      </div>
+
+      <button class="hamburger-toggle d-xl-none" id="mobile-drawer-toggle" aria-label="Toggle Menu">
+        <i class="bi bi-list fs-3"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="navbar-brand-logo text-white">
+        <i class="bi bi-droplet-half text-info"></i> FreshFlow
+      </a>
+      <div class="mobile-drawer-tools">
+        <button class="btn-icon-toggle" id="mobile-theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          <i class="bi bi-moon-stars-fill text-info" id="mobile-theme-toggle-icon"></i>
+        </button>
+        <button class="btn-icon-toggle" id="mobile-rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+          <i class="bi bi-translate text-info"></i>
+        </button>
+        <button class="btn-drawer-close" id="mobile-drawer-close" aria-label="Close Menu">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu-links flex-grow-1">
+      <a href="index.html" class="mobile-menu-link">Home Version 1 <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="index2.html" class="mobile-menu-link">Home Version 2 <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="about.html" class="mobile-menu-link">About Us <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="services.html" class="mobile-menu-link text-info active">Our Services <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="pricing.html" class="mobile-menu-link">Pricing & Calculator <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="tracking.html" class="mobile-menu-link">Live Order Tracker <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="dashboard.html" class="mobile-menu-link text-info fw-bold">Customer Dashboard <i class="bi bi-speedometer2 fs-6"></i></a>
+      <a href="contact.html" class="mobile-menu-link">Contact & Locations <i class="bi bi-chevron-right fs-6"></i></a>
+    </div>
+
+    <div class="mobile-menu-cta mt-4 pt-3 border-top border-secondary">
+      <a href="dashboard.html" class="btn btn-fresh-primary w-100 mb-2"><i class="bi bi-calendar-check me-2"></i> Schedule Pickup</a>
+      <div class="d-flex gap-2">
+        <a href="login.html" class="btn btn-fresh-outline w-50">Login</a>
+        <a href="register.html" class="btn btn-fresh-accent w-50">Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Banner -->
+  <section class="py-5 mt-5 text-center bg-white border-bottom">
+    <div class="container py-4" data-aos="fade-up">
+      <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-3">12+ MASTER SERVICES</span>
+      <h1 class="display-4 fw-bold mb-3">Tailored Cleaning Solutions</h1>
+      <p class="lead text-muted max-w-700 mx-auto">From everyday wash & fold to delicate haute-couture dry cleaning, discover our specialized treatments.</p>
+    </div>
+  </section>
+
+  <!-- Services Grid (12 Items) with Local Images -->
+  <section class="py-5" style="background: var(--ff-bg);">
+    <div class="container">
+      <div class="row g-4">
+        
+        <!-- Service 1 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100 rounded-4 overflow-hidden border-0 shadow-sm glass-card">
+            <img src="image/Washing Machinesq.jpg" alt="Wash & Fold" class="card-img-top object-fit-cover" style="height: 220px;">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold">1. Premium Wash & Fold</h5>
+              <p class="text-muted small">Colors separated, washed with organic hypoallergenic detergent, and delivered neatly packaged.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">$2.45 / lb</span>
+                <a href="dashboard.html" class="btn btn-sm btn-outline-primary rounded-pill">Book Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+          <div class="card h-100 rounded-4 overflow-hidden border-0 shadow-sm glass-card">
+            <img src="image/Dry Cleaning.jpg" alt="Executive Dry Cleaning" class="card-img-top object-fit-cover" style="height: 220px;">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold">2. Executive Dry Cleaning</h5>
+              <p class="text-muted small">Solvent-free hydro-carbon technology for tuxedos, suits, silk ties, and evening dresses.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">From $6.50 / item</span>
+                <a href="dashboard.html" class="btn btn-sm btn-outline-primary rounded-pill">Book Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100 rounded-4 overflow-hidden border-0 shadow-sm glass-card">
+            <img src="image/Steam Ironing.jpg" alt="Steam Pressing" class="card-img-top object-fit-cover" style="height: 220px;">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold">3. Ergonomic Steam Pressing</h5>
+              <p class="text-muted small">Hand-pressed using temperature controlled vertical steam heads to ensure zero shine or burn marks.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">$3.50 / item</span>
+                <a href="dashboard.html" class="btn btn-sm btn-outline-primary rounded-pill">Book Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
+          <div class="card h-100 rounded-4 overflow-hidden border-0 shadow-sm glass-card">
+            <img src="image/Laundry Pickup & Delivery 1.jpg" alt="Express 6h Delivery" class="card-img-top object-fit-cover" style="height: 220px;">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold">4. Express 6-Hour Valet</h5>
+              <p class="text-muted small">Rapid response turn-around for emergency business travel or last minute gala events.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">+30% Express Fee</span>
+                <a href="dashboard.html" class="btn btn-sm btn-outline-primary rounded-pill">Book Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 5 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="card h-100 rounded-4 overflow-hidden border-0 shadow-sm glass-card">
+            <img src="image/Commercial Laundryx.jpg" alt="Curtains & Drapes" class="card-img-top object-fit-cover" style="height: 220px;">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold">5. Curtain & Drape Sanitization</h5>
+              <p class="text-muted small">In-home removal or facility deep extraction washing for heavy velvet & silk drapery.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">$14.00 / panel</span>
+                <a href="dashboard.html" class="btn btn-sm btn-outline-primary rounded-pill">Book Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 6 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="350">
+          <div class="card h-100 rounded-4 overflow-hidden border-0 shadow-sm glass-card">
+            <img src="image/3.jpg" alt="Duvet & Comforter" class="card-img-top object-fit-cover" style="height: 220px;">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold">6. Down Duvets & Comforters</h5>
+              <p class="text-muted small">Feather fluffing & anti-allergen ozone treatment for king size comforters and wool blankets.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">$28.00 / piece</span>
+                <a href="dashboard.html" class="btn btn-sm btn-outline-primary rounded-pill">Book Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 7 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="card h-100 rounded-4 overflow-hidden border-0 shadow-sm glass-card">
+            <img src="image/a.jpg" alt="Designer Sneaker Restoration" class="card-img-top object-fit-cover" style="height: 220px;">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold">7. Luxury Sneaker & Leather Spa</h5>
+              <p class="text-muted small">Hand scrubbed sneaker soles, suede deep conditioning, and leather handbag restoration.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">$35.00 / pair</span>
+                <a href="dashboard.html" class="btn btn-sm btn-outline-primary rounded-pill">Book Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 8 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="450">
+          <div class="card h-100 rounded-4 overflow-hidden border-0 shadow-sm glass-card">
+            <img src="image/Commercial Laundry.jpg" alt="Carpet & Rug Cleaning" class="card-img-top object-fit-cover" style="height: 220px;">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold">8. Oriental Carpet Extraction</h5>
+              <p class="text-muted small">Dust extraction, fringe whitening, and specialized fiber washing for Persian rugs.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">$3.50 / sq ft</span>
+                <a href="dashboard.html" class="btn btn-sm btn-outline-primary rounded-pill">Book Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 9 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="card h-100 rounded-4 overflow-hidden border-0 shadow-sm glass-card">
+            <img src="image/Dry Cleaningdx.jpg" alt="Wedding Gown Preservation" class="card-img-top object-fit-cover" style="height: 220px;">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold">9. Wedding Gown Preservation</h5>
+              <p class="text-muted small">Museum-grade acid-free museum chest boxing with anti-yellowing heirloom warranty.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">$180.00 / gown</span>
+                <a href="dashboard.html" class="btn btn-sm btn-outline-primary rounded-pill">Book Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 10 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="550">
+          <div class="card h-100 rounded-4 overflow-hidden border-0 shadow-sm glass-card">
+            <img src="image/Laundry Pickup & Delivery 5.jpg" alt="Doorstep Pickup" class="card-img-top object-fit-cover" style="height: 220px;">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold">10. Scheduled Recurring Pickup</h5>
+              <p class="text-muted small">Automated weekly or bi-weekly driver visits with personalized hamper bags.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Free Valet</span>
+                <a href="dashboard.html" class="btn btn-sm btn-outline-primary rounded-pill">Book Service</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 11 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="card h-100 rounded-4 overflow-hidden border-0 shadow-sm glass-card">
+            <img src="image/Commercial Laundryd.jpg" alt="Commercial Laundry" class="card-img-top object-fit-cover" style="height: 220px;">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold">11. Enterprise Commercial Bulk</h5>
+              <p class="text-muted small">High-capacity laundering for corporate uniforms, gyms, medical clinics & salons.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Custom Quote</span>
+                <a href="contact.html" class="btn btn-sm btn-outline-primary rounded-pill">Inquire Bulk</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 12 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="650">
+          <div class="card h-100 rounded-4 overflow-hidden border-0 shadow-sm glass-card">
+            <img src="image/Commercial Laundryeee.jpg" alt="Hotel Linen Care" class="card-img-top object-fit-cover" style="height: 220px;">
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="fw-bold">12. Luxury Hotel & Spa Linen</h5>
+              <p class="text-muted small">High-thread-count sheet calendering, pillowcase ironing, and terrycloth softening.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <span class="fw-bold text-primary">Contract Rate</span>
+                <a href="contact.html" class="btn btn-sm btn-outline-primary rounded-pill">Inquire Bulk</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Luxury Water Wave Footer -->
+  <footer class="water-footer">
+    <svg class="wave-svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,32L48,42.7C96,53,192,75,288,80C384,85,480,75,576,64C672,53,768,43,864,48C960,53,1056,75,1152,80C1248,85,1344,75,1392,70L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+    </svg>
+
+    <div class="container">
+      <div class="row g-5 mb-5">
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="navbar-brand-logo text-white fs-3 mb-3 d-inline-block">
+            <i class="bi bi-droplet-half text-info me-2"></i> FreshFlow
+          </a>
+          <p class="text-white-50 mb-4">
+            Luxury eco-friendly laundry & dry cleaning service powered by state-of-the-art ozone technology and white-glove valet pickup.
+          </p>
+          <div class="d-flex gap-3">
+            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h5 class="fw-bold text-white mb-3 font-heading">Quick Links</h5>
+          <ul class="list-unstyled text-white-50">
+            <li class="mb-2"><a href="index.html" class="hover-info">Home V1</a></li>
+            <li class="mb-2"><a href="index2.html" class="hover-info">Home V2</a></li>
+            <li class="mb-2"><a href="about.html" class="hover-info">About Us</a></li>
+            <li class="mb-2"><a href="services.html" class="hover-info">Services</a></li>
+            <li class="mb-2"><a href="pricing.html" class="hover-info">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold text-white mb-3 font-heading">Customer Portal</h5>
+          <ul class="list-unstyled text-white-50">
+            <li class="mb-2"><a href="dashboard.html" class="hover-info">Schedule Pickup</a></li>
+            <li class="mb-2"><a href="tracking.html" class="hover-info">Order Live Status</a></li>
+            <li class="mb-2"><a href="dashboard.html" class="hover-info">Billing & Invoices</a></li>
+            <li class="mb-2"><a href="login.html" class="hover-info">Customer Login</a></li>
+            <li class="mb-2"><a href="register.html" class="hover-info">Create Account</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold text-white mb-3 font-heading">Contact Valet</h5>
+          <p class="text-white-50 mb-2"><i class="bi bi-geo-alt text-info me-2"></i> 742 Fifth Avenue, New York, NY</p>
+          <p class="text-white-50 mb-2"><i class="bi bi-telephone text-info me-2"></i> +1 (800) 555-FRESH</p>
+          <p class="text-white-50 mb-3"><i class="bi bi-envelope text-info me-2"></i> support@freshflowlaundry.com</p>
+          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill"><i class="bi bi-dot"></i> Valet Service Available 24/7</span>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary pt-4 text-center text-white-50">
+        <small>&copy; 2026 FreshFlow Laundry & Dry Cleaning. All Rights Reserved. Crafted for Ultimate Luxury & Cleanliness.</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
+</body>
+</html>

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshFlow | Luxury & Technology-Driven Laundry & Dry Cleaning</title>
+  <meta name="description"
+    content="Experience Next-Gen Eco-Friendly Laundry & Dry Cleaning Service with 24h Delivery, Real-Time Tracking & SaaS Customer Dashboard.">
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%230EA5E9' d='M50 5 C50 5 15 50 15 70 A35 35 0 0 0 85 70 C85 50 50 5 50 5 Z'/><circle cx='40' cy='60' r='6' fill='%23FFFFFF' opacity='0.7'/></svg>"
+    type="image/svg+xml">
+
+  <!-- CSS Dependencies -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Page Loader -->
+  <div id="page-loader">
+    <div class="loader-drum"></div>
+    <p class="text-white mt-4 fw-bold font-heading letter-spacing-1">FRESHFLOW LAUNDRY</p>
+    <small class="text-info">Spinning up fresh cleanliness...</small>
+  </div>
+
+  <!-- Background Bubbles Canvas -->
+  <canvas id="bubbles-canvas"></canvas>
+
+  <!-- Navbar -->
+  <nav class="navbar fresh-navbar">
+    <div class="container-fluid px-3 px-xl-5 d-flex align-items-center justify-content-between flex-nowrap">
+      <a href="index.html" class="navbar-brand-logo">
+        <i class="bi bi-droplet-half text-info"></i> FreshFlow
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="navbar-nav d-none d-xl-flex flex-row flex-nowrap gap-2">
+        <li class="nav-item"><a href="index.html" class="nav-link-custom active">Home 1</a></li>
+        <li class="nav-item"><a href="index2.html" class="nav-link-custom">Home 2</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link-custom">About</a></li>
+        <li class="nav-item"><a href="services.html" class="nav-link-custom">Services</a></li>
+        <li class="nav-item"><a href="pricing.html" class="nav-link-custom">Pricing</a></li>
+        <li class="nav-item"><a href="tracking.html" class="nav-link-custom">Track Order</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link-custom">Contact</a></li>
+      </ul>
+
+      <!-- Desktop CTA -->
+      <div class="nav-cta-group d-none d-xl-flex align-items-center flex-nowrap gap-2">
+        <button class="btn btn-sm btn-outline-info rounded-circle p-2" id="theme-toggle-btn"
+          title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          <i class="bi bi-moon-stars-fill fs-6" id="theme-toggle-icon"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-info rounded-pill px-2 py-1 fw-semibold me-1" id="rtl-toggle-btn"
+          title="Toggle RTL (Right-To-Left)" aria-label="Toggle RTL">
+          <i class="bi bi-translate me-1"></i> <span id="rtl-toggle-text">RTL</span>
+        </button>
+        <a href="login.html" class="btn btn-fresh-outline py-2 px-3">Login</a>
+        <a href="dashboard.html" class="btn btn-fresh-primary py-2 px-3"><i class="bi bi-speedometer2"></i> Dashboard</a>
+      </div>
+
+      <!-- Mobile/Tablet Hamburger Toggle (<1200px) -->
+      <button class="hamburger-toggle d-xl-none" id="mobile-drawer-toggle" aria-label="Toggle Navigation Menu">
+        <i class="bi bi-list fs-3"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Overlay & Content -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <a href="index.html" class="navbar-brand-logo text-white">
+        <i class="bi bi-droplet-half text-info"></i> FreshFlow
+      </a>
+      <div class="mobile-drawer-tools">
+        <button class="btn-icon-toggle" id="mobile-theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          <i class="bi bi-moon-stars-fill text-info" id="mobile-theme-toggle-icon"></i>
+        </button>
+        <button class="btn-icon-toggle" id="mobile-rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+          <i class="bi bi-translate text-info"></i>
+        </button>
+        <button class="btn-drawer-close" id="mobile-drawer-close" aria-label="Close Menu">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu-links flex-grow-1">
+      <a href="index.html" class="mobile-menu-link text-info active">Home Version 1 <i
+          class="bi bi-chevron-right fs-6"></i></a>
+      <a href="index2.html" class="mobile-menu-link">Home Version 2 <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="about.html" class="mobile-menu-link">About Us <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="services.html" class="mobile-menu-link">Our Services <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="pricing.html" class="mobile-menu-link">Pricing & Calculator <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="tracking.html" class="mobile-menu-link">Live Order Tracker <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="dashboard.html" class="mobile-menu-link text-info fw-bold">Customer Dashboard <i
+          class="bi bi-speedometer2 fs-6"></i></a>
+      <a href="contact.html" class="mobile-menu-link">Contact & Locations <i class="bi bi-chevron-right fs-6"></i></a>
+    </div>
+    <div class="mobile-menu-cta mt-4 pt-3 border-top border-secondary">
+      <a href="dashboard.html" class="btn btn-fresh-primary w-100 mb-2"><i class="bi bi-calendar-check me-2"></i>
+        Schedule Pickup</a>
+      <div class="d-flex gap-2">
+        <a href="login.html" class="btn btn-fresh-outline w-50">Login</a>
+        <a href="register.html" class="btn btn-fresh-accent w-50">Register</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section with Background Video & 3D Canvas -->
+  <section class="hero-section position-relative overflow-hidden">
+    <!-- Local Background Video -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 opacity-25 z-0">
+      <video autoplay loop muted playsinline class="w-100 h-100 object-fit-cover">
+        <source src="videos/4119968-hd_1920_1080_30fps.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="container position-relative z-1">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <span class="badge bg-info-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-3 fs-6">
+            <i class="bi bi-sparkles me-1"></i> LUXURY LAUNDRY & DRY CLEANING
+          </span>
+          <h1 class="hero-title">Pristine Care For Your Finest Garments.</h1>
+          <p class="hero-subtitle">
+            Experience next-generation technology-driven laundry care with eco-friendly cleaning, 24-hour door-to-door
+            delivery, and real-time order tracking.
+          </p>
+          <div class="hero-btn-group d-flex flex-column flex-sm-row gap-3 mb-4">
+            <a href="dashboard.html" class="btn btn-fresh-primary fs-6"><i class="bi bi-bag-check me-2"></i> Book Pickup
+              Now</a>
+            <a href="tracking.html" class="btn btn-fresh-outline fs-6"><i class="bi bi-geo-alt me-2"></i> Track Your
+              Order</a>
+          </div>
+
+          <div
+            class="d-flex align-items-center justify-content-center justify-content-lg-start gap-4 pt-3 border-top border-secondary">
+            <div>
+              <h4 class="fw-bold mb-0 text-primary font-heading">99.8%</h4>
+              <small class="text-muted">Stain Removal</small>
+            </div>
+            <div class="border-end h-100 py-3"></div>
+            <div>
+              <h4 class="fw-bold mb-0 text-primary font-heading">24 Hours</h4>
+              <small class="text-muted">Express Delivery</small>
+            </div>
+            <div class="border-end h-100 py-3"></div>
+            <div>
+              <h4 class="fw-bold mb-0 text-primary font-heading">50k+</h4>
+              <small class="text-muted">Garments Cared</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Interactive Hero Canvas & Floating Badges -->
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="hero-3d-wrapper">
+            <div id="hero-3d-canvas"></div>
+
+            <div class="floating-laundry-badge badge-pos-1">
+              <i class="bi bi-shield-check text-success fs-3"></i>
+              <div>
+                <strong class="d-block text-dark">Eco-Friendly Solvents</strong>
+                <small class="text-muted">100% Non-toxic & Safe</small>
+              </div>
+            </div>
+
+            <div class="floating-laundry-badge badge-pos-2">
+              <i class="bi bi-truck text-primary fs-3"></i>
+              <div>
+                <strong class="d-block text-dark">Free Home Pickup</strong>
+                <small class="text-muted">Valet Driver Assigned</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Highlights Grid -->
+  <section class="py-5 bg-white border-bottom">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="d-flex align-items-center gap-3 p-3 glass-card">
+            <div class="bg-primary-subtle text-primary p-3 rounded-circle fs-4">
+              <i class="bi bi-clock-history"></i>
+            </div>
+            <div>
+              <h6 class="fw-bold mb-1">24h Express</h6>
+              <small class="text-muted">Door-to-door delivery</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="d-flex align-items-center gap-3 p-3 glass-card">
+            <div class="bg-success-subtle text-success p-3 rounded-circle fs-4">
+              <i class="bi bi-tree"></i>
+            </div>
+            <div>
+              <h6 class="fw-bold mb-1">Eco-Clean</h6>
+              <small class="text-muted">Biodegradable detergents</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="d-flex align-items-center gap-3 p-3 glass-card">
+            <div class="bg-info-subtle text-info p-3 rounded-circle fs-4">
+              <i class="bi bi-crosshair"></i>
+            </div>
+            <div>
+              <h6 class="fw-bold mb-1">Live Tracking</h6>
+              <small class="text-muted">Real-time status updates</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="d-flex align-items-center gap-3 p-3 glass-card">
+            <div class="bg-warning-subtle text-warning p-3 rounded-circle fs-4">
+              <i class="bi bi-award"></i>
+            </div>
+            <div>
+              <h6 class="fw-bold mb-1">Luxury Finish</h6>
+              <small class="text-muted">Hand-pressed steam ironing</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Spotlight with Local Images -->
+  <section class="py-5" style="background: var(--ff-bg);">
+    <div class="container py-4">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-2">OUR EXPERTISE</span>
+        <h2 class="section-title display-5 fw-bold">Master Garment Care Services</h2>
+        <p class="section-subtitle text-muted">Tailored cleaning treatments for every luxury fabric and household item.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Service Card 1 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card p-0 overflow-hidden">
+            <img src="image/Washing Machines.jpg" alt="Wash & Fold" class="w-100 object-fit-cover"
+              style="height: 200px;">
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <h4 class="fw-bold mb-2">Wash & Fold</h4>
+              <p class="text-muted mb-4">Everyday clothes washed with hypoallergenic detergent, perfectly folded and
+                crisp scent preserved.</p>
+              <a href="services.html" class="fw-bold text-primary mt-auto">Learn More <i
+                  class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-card p-0 overflow-hidden">
+            <img src="image/Dry Cleaning.jpg" alt="Dry Cleaning" class="w-100 object-fit-cover" style="height: 200px;">
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <h4 class="fw-bold mb-2">Delicate Dry Cleaning</h4>
+              <p class="text-muted mb-4">Solvent-free hydro-carbon technology specially engineered for suits, silk
+                dresses, and couture.</p>
+              <a href="services.html" class="fw-bold text-primary mt-auto">Learn More <i
+                  class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-card p-0 overflow-hidden">
+            <img src="image/Steam Ironing.jpg" alt="Steam Ironing" class="w-100 object-fit-cover"
+              style="height: 200px;">
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <h4 class="fw-bold mb-2">Steam Ironing & Pressing</h4>
+              <p class="text-muted mb-4">Precision temperature controlled vertical steam pressing to remove every crease
+                while preserving fiber integrity.</p>
+              <a href="services.html" class="fw-bold text-primary mt-auto">Learn More <i
+                  class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card 4 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-card p-0 overflow-hidden">
+            <img src="image/Laundry Pickup & Delivery 3.jpg" alt="Express Pickup" class="w-100 object-fit-cover"
+              style="height: 200px;">
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <h4 class="fw-bold mb-2">Same-Day Express Pickup</h4>
+              <p class="text-muted mb-4">Urgent meeting or gala event? Get your clothes collected, sanitized, and
+                delivered within 6 hours.</p>
+              <a href="services.html" class="fw-bold text-primary mt-auto">Learn More <i
+                  class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card 5 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-card p-0 overflow-hidden">
+            <img src="image/Commercial Laundryd.jpg" alt="Commercial Care" class="w-100 object-fit-cover"
+              style="height: 200px;">
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <h4 class="fw-bold mb-2">Commercial & Hotel Linen</h4>
+              <p class="text-muted mb-4">High-volume industrial laundry solutions for boutique hotels, spas, and luxury
+                dining venues.</p>
+              <a href="services.html" class="fw-bold text-primary mt-auto">Learn More <i
+                  class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service Card 6 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-card p-0 overflow-hidden">
+            <img src="image/Commercial Laundry.jpg" alt="Curtain & Carpet" class="w-100 object-fit-cover"
+              style="height: 200px;">
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <h4 class="fw-bold mb-2">Curtain & Carpet Extraction</h4>
+              <p class="text-muted mb-4">Heavy-duty industrial extraction washing for luxury carpets, drapes, and luxury
+                bedding linens.</p>
+              <a href="services.html" class="fw-bold text-primary mt-auto">Learn More <i
+                  class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive 10-Stage Laundry Process -->
+  <section class="process-section">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge bg-success-subtle text-success fw-bold px-3 py-2 rounded-pill mb-2">SEAMLESS WORKFLOW</span>
+        <h2 class="section-title display-5 fw-bold">How FreshFlow Magic Happens</h2>
+        <p class="section-subtitle text-muted">From doorstep pickup to crisp white-glove delivery in 10 automated steps.
+        </p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Step 1 -->
+        <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="process-step-card">
+            <div class="process-number">1</div>
+            <div class="process-step-icon"><i class="bi bi-calendar2-check"></i></div>
+            <h6 class="fw-bold">Schedule</h6>
+            <small class="text-muted">Select pickup window via app</small>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="process-step-card">
+            <div class="process-number">2</div>
+            <div class="process-step-icon"><i class="bi bi-truck"></i></div>
+            <h6 class="fw-bold">Pickup</h6>
+            <small class="text-muted">Valet collects garment bag</small>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="process-step-card">
+            <div class="process-number">3</div>
+            <div class="process-step-icon"><i class="bi bi-qr-code-scan"></i></div>
+            <h6 class="fw-bold">Tag & Sort</h6>
+            <small class="text-muted">Smart RFID garment tracking</small>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="process-step-card">
+            <div class="process-number">4</div>
+            <div class="process-step-icon"><i class="bi bi-water"></i></div>
+            <h6 class="fw-bold">Eco Wash</h6>
+            <small class="text-muted">Filtered ozone micro-bubble wash</small>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="process-step-card">
+            <div class="process-number">5</div>
+            <div class="process-step-icon"><i class="bi bi-wind"></i></div>
+            <h6 class="fw-bold">Air Drying</h6>
+            <small class="text-muted">Low-temp delicate tumbling</small>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="col-lg-2 col-md-4 col-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="process-step-card">
+            <div class="process-number">6</div>
+            <div class="process-step-icon"><i class="bi bi-fire"></i></div>
+            <h6 class="fw-bold">Steam Press</h6>
+            <small class="text-muted">Ergonomic crisp ironing</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Showcase & Gallery Section with Local Media -->
+  <section class="py-5 bg-white">
+    <div class="container py-4">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge bg-info-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-2">INSIDE OUR FACILITY</span>
+        <h2 class="section-title display-5 fw-bold">Pristine Facility Gallery</h2>
+        <p class="section-subtitle text-muted">A look inside our state-of-the-art eco-laundry processing facility.</p>
+      </div>
+
+      <div class="row g-4 align-items-center">
+        <!-- Video Showcase Card -->
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="rounded-4 overflow-hidden shadow-lg position-relative">
+            <video autoplay loop muted playsinline class="w-100 d-block" style="height: 380px; object-fit: cover;">
+              <source src="videos/1362720-hd_1920_1080_30fps.mp4" type="video/mp4">
+            </video>
+            <div class="position-absolute bottom-0 start-0 w-100 p-4 text-white"
+              style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
+              <h5 class="fw-bold mb-1"><i class="bi bi-play-circle-fill text-info me-2"></i> Automated Washing Drum
+                Action</h5>
+              <small class="text-white-50">Ozone micro-bubble filtration in progress</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Local Image Masonry Grid -->
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="row g-3">
+            <div class="col-6">
+              <img src="image/Gallery.jpg" alt="Gallery 1" class="img-fluid rounded-4 shadow-sm object-fit-cover w-100"
+                style="height: 180px;">
+            </div>
+            <div class="col-6">
+              <img src="image/Gallerya.jpg" alt="Gallery 2" class="img-fluid rounded-4 shadow-sm object-fit-cover w-100"
+                style="height: 180px;">
+            </div>
+            <div class="col-6">
+              <img src="image/Gallerydde.jpg" alt="Gallery 3"
+                class="img-fluid rounded-4 shadow-sm object-fit-cover w-100" style="height: 180px;">
+            </div>
+            <div class="col-6">
+              <img src="image/Gallerys.jpg" alt="Gallery 4" class="img-fluid rounded-4 shadow-sm object-fit-cover w-100"
+                style="height: 180px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section with Local Avatars -->
+  <section class="py-5" style="background: var(--ff-bg);">
+    <div class="container py-4">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge bg-success-subtle text-success fw-bold px-3 py-2 rounded-pill mb-2">LOVED BY CLIENTS</span>
+        <h2 class="section-title display-5 fw-bold">What Our Customers Say</h2>
+        <p class="section-subtitle text-muted">Trusted by luxury homeowners, fashion executives, and busy professionals.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+            <p class="text-muted mb-4">"FreshFlow completely changed my routine. The valet driver picks up my suits on
+              Monday morning and returns them crisp on Tuesday evening. Absolutely zero hassle!"</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="image/Testimonials.jpg" alt="Testimonial 1" class="rounded-circle object-fit-cover"
+                style="width: 50px; height: 50px;">
+              <div>
+                <h6 class="fw-bold mb-0">Sophia Rodriguez</h6>
+                <small class="text-primary"><i class="bi bi-star-fill text-warning"></i> 5.0 Rating</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+            <p class="text-muted mb-4">"The eco dry cleaning technology restored my vintage Chanel silk gown back to
+              brand new condition. No chemical odor at all!"</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="image/Testimonialsq.jpg" alt="Testimonial 2" class="rounded-circle object-fit-cover"
+                style="width: 50px; height: 50px;">
+              <div>
+                <h6 class="fw-bold mb-0">Harrison Sterling</h6>
+                <small class="text-primary"><i class="bi bi-star-fill text-warning"></i> 5.0 Rating</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+            <p class="text-muted mb-4">"The live RFID tracker on the dashboard gives me total peace of mind. I can watch
+              my clothes move from washing to steam press in real time."</p>
+            <div class="d-flex align-items-center gap-3">
+              <img src="image/Testimonialss.jpg" alt="Testimonial 3" class="rounded-circle object-fit-cover"
+                style="width: 50px; height: 50px;">
+              <div>
+                <h6 class="fw-bold mb-0">Victoria Croft</h6>
+                <small class="text-primary"><i class="bi bi-star-fill text-warning"></i> 5.0 Rating</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Dashboard Sneak Peek -->
+  <section class="py-5 bg-dark text-white position-relative overflow-hidden">
+    <div class="container py-5">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5" data-aos="fade-right">
+          <span class="badge bg-primary text-white fw-bold px-3 py-2 rounded-pill mb-3">NEXT-GEN SAAS PLATFORM</span>
+          <h2 class="display-5 fw-bold mb-4 text-white">Full Control In The Palm Of Your Hand.</h2>
+          <p class="text-white-50 mb-4 fs-6">
+            Track your laundry in real-time, schedule recurring pickups, view itemized digital invoices, and set custom
+            garment care preferences with our interactive Customer Dashboard.
+          </p>
+          <ul class="list-unstyled mb-4">
+            <li class="d-flex align-items-center gap-3 mb-3">
+              <i class="bi bi-check-circle-fill text-info fs-5"></i>
+              <span>Live Order Progress Bar & GPS Valet Tracking</span>
+            </li>
+            <li class="d-flex align-items-center gap-3 mb-3">
+              <i class="bi bi-check-circle-fill text-info fs-5"></i>
+              <span>Saved Delivery Addresses & Stored Payment Methods</span>
+            </li>
+            <li class="d-flex align-items-center gap-3">
+              <i class="bi bi-check-circle-fill text-info fs-5"></i>
+              <span>Exclusive Subscription Discounts & Instant Coupons</span>
+            </li>
+          </ul>
+          <a href="dashboard.html" class="btn btn-fresh-primary py-3 px-5 fs-6"><i class="bi bi-speedometer2 me-2"></i>
+            Launch Customer Dashboard</a>
+        </div>
+
+        <div class="col-lg-7" data-aos="fade-left">
+          <div class="glass-card-dark p-4 rounded-4 shadow-lg border border-secondary">
+            <div class="d-flex justify-content-between align-items-center mb-4 border-bottom border-secondary pb-3">
+              <div class="d-flex align-items-center gap-2">
+                <span class="spinner-grow spinner-grow-sm text-info"></span>
+                <span class="fw-bold">Active Order #FF-884920</span>
+              </div>
+              <span class="badge bg-success px-3 py-2 rounded-pill">Washing In Progress</span>
+            </div>
+
+            <!-- Mini Progress Tracker Preview -->
+            <div class="d-flex justify-content-between align-items-center my-4 position-relative px-2">
+              <div class="text-center">
+                <div class="bg-primary text-white rounded-circle p-3 d-inline-block mb-2"><i class="bi bi-truck"></i>
+                </div>
+                <small class="d-block text-white-50">Picked Up</small>
+              </div>
+              <div class="text-center">
+                <div class="bg-primary text-white rounded-circle p-3 d-inline-block mb-2"><i class="bi bi-water"></i>
+                </div>
+                <small class="d-block text-white fw-bold">Washing</small>
+              </div>
+              <div class="text-center">
+                <div class="bg-secondary text-white-50 rounded-circle p-3 d-inline-block mb-2"><i
+                    class="bi bi-fire"></i></div>
+                <small class="d-block text-white-50">Ironing</small>
+              </div>
+              <div class="text-center">
+                <div class="bg-secondary text-white-50 rounded-circle p-3 d-inline-block mb-2"><i
+                    class="bi bi-box-seam"></i></div>
+                <small class="d-block text-white-50">Delivering</small>
+              </div>
+            </div>
+
+            <div class="bg-dark p-3 rounded-3 mt-3 d-flex justify-content-between align-items-center">
+              <div>
+                <small class="text-white-50 d-block">Estimated Delivery Window</small>
+                <strong class="text-info fs-6">Today between 5:00 PM - 7:00 PM</strong>
+              </div>
+              <a href="tracking.html" class="btn btn-sm btn-outline-info">View Live Map</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner Section -->
+  <section class="py-5 position-relative text-center text-white overflow-hidden">
+    <!-- Local Background Video for CTA Banner -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 opacity-30 z-0">
+      <video autoplay loop muted playsinline class="w-100 h-100 object-fit-cover">
+        <source src="videos/8756891-uhd_4096_2160_25fps.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="container py-4 position-relative z-1">
+      <h2 class="display-5 fw-bold mb-3 text-white">Ready For Pristine, Fresh Garments?</h2>
+      <p class="lead text-white-50 mb-4 max-w-600 mx-auto">Book your first pickup in under 60 seconds and enjoy 20% OFF
+        your first order.</p>
+      <div class="d-flex justify-content-center gap-3 flex-column flex-sm-row">
+        <a href="dashboard.html" class="btn btn-light text-primary fw-bold px-5 py-3 rounded-pill fs-6">Schedule Pickup
+          Now</a>
+        <a href="pricing.html" class="btn btn-outline-light px-5 py-3 rounded-pill fs-6">View Pricing Calculator</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Luxury Water Wave Footer -->
+  <footer class="water-footer">
+    <svg class="wave-svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path
+        d="M0,32L48,42.7C96,53,192,75,288,80C384,85,480,75,576,64C672,53,768,43,864,48C960,53,1056,75,1152,80C1248,85,1344,75,1392,70L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+      </path>
+    </svg>
+
+    <div class="container">
+      <div class="row g-5 mb-5">
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="navbar-brand-logo text-white fs-3 mb-3 d-inline-block">
+            <i class="bi bi-droplet-half text-info me-2"></i> FreshFlow
+          </a>
+          <p class="text-white-50 mb-4">
+            Luxury eco-friendly laundry & dry cleaning service powered by state-of-the-art ozone technology and
+            white-glove valet pickup.
+          </p>
+          <div class="d-flex gap-3">
+            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <h5 class="fw-bold text-white mb-3 font-heading">Quick Links</h5>
+          <ul class="list-unstyled text-white-50">
+            <li class="mb-2"><a href="index.html" class="hover-info">Home V1</a></li>
+            <li class="mb-2"><a href="index2.html" class="hover-info">Home V2</a></li>
+            <li class="mb-2"><a href="about.html" class="hover-info">About Us</a></li>
+            <li class="mb-2"><a href="services.html" class="hover-info">Services</a></li>
+            <li class="mb-2"><a href="pricing.html" class="hover-info">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold text-white mb-3 font-heading">Customer Portal</h5>
+          <ul class="list-unstyled text-white-50">
+            <li class="mb-2"><a href="dashboard.html" class="hover-info">Schedule Pickup</a></li>
+            <li class="mb-2"><a href="tracking.html" class="hover-info">Order Live Status</a></li>
+            <li class="mb-2"><a href="dashboard.html" class="hover-info">Billing & Invoices</a></li>
+            <li class="mb-2"><a href="login.html" class="hover-info">Customer Login</a></li>
+            <li class="mb-2"><a href="register.html" class="hover-info">Create Account</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h5 class="fw-bold text-white mb-3 font-heading">Contact Valet</h5>
+          <p class="text-white-50 mb-2"><i class="bi bi-geo-alt text-info me-2"></i> 742 Fifth Avenue, New York, NY</p>
+          <p class="text-white-50 mb-2"><i class="bi bi-telephone text-info me-2"></i> +1 (800) 555-FRESH</p>
+          <p class="text-white-50 mb-3"><i class="bi bi-envelope text-info me-2"></i> support@freshflowlaundry.com</p>
+          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill"><i class="bi bi-dot"></i> Valet
+            Service Available 24/7</span>
+        </div>
+      </div>
+
+      <div class="border-top border-secondary pt-4 text-center text-white-50">
+        <small>&copy; 2026 FreshFlow Laundry & Dry Cleaning. All Rights Reserved. Crafted for Ultimate Luxury &
+          Cleanliness.</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+  </script>
+</body>
+
+</html>
