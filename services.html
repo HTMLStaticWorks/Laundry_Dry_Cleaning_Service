@@ -20,8 +20,6 @@
     <p class="text-white mt-4 fw-bold font-heading">SERVICES CATALOG</p>
   </div>
 
-  <canvas id="bubbles-canvas"></canvas>
-
   <!-- Navbar -->
   <nav class="navbar fresh-navbar">
     <div class="container-fluid px-3 px-xl-5 d-flex align-items-center justify-content-between flex-nowrap">
@@ -43,8 +41,8 @@
         <button class="btn btn-sm btn-outline-info rounded-circle p-2" id="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
           <i class="bi bi-moon-stars-fill fs-6" id="theme-toggle-icon"></i>
         </button>
-        <button class="btn btn-sm btn-outline-info rounded-pill px-2 py-1 fw-semibold me-1" id="rtl-toggle-btn" title="Toggle RTL (Right-To-Left)" aria-label="Toggle RTL">
-          <i class="bi bi-translate me-1"></i> <span id="rtl-toggle-text">RTL</span>
+        <button class="btn btn-sm btn-outline-info rounded-circle p-2 me-1" id="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+          <i class="bi bi-arrow-left-right fs-6"></i>
         </button>
         <a href="login.html" class="btn btn-fresh-outline py-2 px-3">Login</a>
         <a href="dashboard.html" class="btn btn-fresh-primary py-2 px-3"><i class="bi bi-speedometer2"></i> Dashboard</a>
@@ -68,7 +66,7 @@
           <i class="bi bi-moon-stars-fill text-info" id="mobile-theme-toggle-icon"></i>
         </button>
         <button class="btn-icon-toggle" id="mobile-rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
-          <i class="bi bi-translate text-info"></i>
+          <i class="bi bi-arrow-left-right text-info"></i>
         </button>
         <button class="btn-drawer-close" id="mobile-drawer-close" aria-label="Close Menu">
           <i class="bi bi-x-lg"></i>
@@ -96,12 +94,18 @@
     </div>
   </div>
 
-  <!-- Header Banner -->
-  <section class="py-5 mt-5 text-center bg-white border-bottom">
-    <div class="container py-4" data-aos="fade-up">
-      <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-3">12+ MASTER SERVICES</span>
-      <h1 class="display-4 fw-bold mb-3">Tailored Cleaning Solutions</h1>
-      <p class="lead text-muted max-w-700 mx-auto">From everyday wash & fold to delicate haute-couture dry cleaning, discover our specialized treatments.</p>
+  <!-- Header Banner with Video Stream -->
+  <section class="py-5 mt-5 text-center text-white position-relative overflow-hidden" style="background: #0F172A;">
+    <div class="hero-video-wrap">
+      <video autoplay loop muted playsinline>
+        <source src="videos/8756695-uhd_4096_2160_25fps.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
+    <div class="container py-4 position-relative z-2" data-aos="fade-up">
+      <span class="badge bg-primary text-white fw-bold px-3 py-2 rounded-pill mb-3 shadow-sm">12+ MASTER SERVICES</span>
+      <h1 class="display-4 fw-bold mb-3 text-white">Tailored Cleaning Solutions</h1>
+      <p class="lead text-white-50 max-w-700 mx-auto">From everyday wash & fold to delicate haute-couture dry cleaning, discover our specialized treatments.</p>
     </div>
   </section>
 

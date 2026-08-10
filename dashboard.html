@@ -11,16 +11,18 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body style="background-color: #F1F5F9;">
+<body>
 
   <div class="dashboard-layout">
     
     <!-- Sidebar Navigation -->
     <aside class="dashboard-sidebar">
       <div>
-        <a href="index.html" class="navbar-brand-logo text-white fs-4 mb-4 d-inline-block">
-          <i class="bi bi-droplet-half text-info me-2"></i> FreshFlow
-        </a>
+        <div class="mb-4 text-center text-lg-start">
+          <a href="index.html" class="navbar-brand-logo text-white fs-3 d-inline-flex align-items-center gap-2">
+            <i class="bi bi-droplet-half text-info me-1"></i> FreshFlow
+          </a>
+        </div>
 
         <div class="dashboard-nav-group mt-3">
           <div class="dashboard-nav-item active" data-tab="tab-overview">
@@ -50,7 +52,7 @@
         </div>
       </div>
 
-      <div class="pt-4 border-top border-secondary text-white-50">
+      <div class="pt-4 border-top border-secondary text-white-50 mt-auto">
         <div class="d-flex align-items-center gap-3 mb-3">
           <img src="image/Office & Customer Support.jpg" alt="User Profile" class="rounded-circle object-fit-cover" style="width: 44px; height: 44px;">
           <div>
@@ -58,21 +60,39 @@
             <small>VIP Member</small>
           </div>
         </div>
-        <a href="login.html" class="btn btn-sm btn-outline-light w-100"><i class="bi bi-box-arrow-right me-1"></i> Sign Out</a>
+        <a href="login.html" class="btn btn-sm btn-outline-light w-100 py-2"><i class="bi bi-box-arrow-right me-1"></i> Sign Out</a>
       </div>
     </aside>
 
     <!-- Main Dashboard Body -->
     <main class="dashboard-main">
       
+      <!-- Desktop Dashboard Top-Right Theme & RTL Controls -->
+      <div class="d-none d-lg-flex justify-content-end align-items-center mb-4 gap-2">
+        <button class="btn btn-sm btn-outline-info rounded-circle" id="theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme" style="width: 38px; height: 38px; padding: 0; display: inline-flex; align-items: center; justify-content: center;">
+          <i class="bi bi-moon-stars-fill fs-6" id="theme-toggle-icon"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-info rounded-circle" id="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL" style="width: 38px; height: 38px; padding: 0; display: inline-flex; align-items: center; justify-content: center;">
+          <i class="bi bi-arrow-left-right fs-6"></i>
+        </button>
+      </div>
+      
       <!-- Mobile Dashboard Topbar Header -->
-      <div class="dashboard-topbar-mobile d-lg-none">
-        <a href="index.html" class="navbar-brand-logo text-dark fs-5">
+      <div class="dashboard-topbar-mobile d-lg-none d-flex align-items-center justify-content-between">
+        <a href="index.html" class="navbar-brand-logo text-dark fs-6 fs-sm-5 fw-bold me-2">
           <i class="bi bi-droplet-half text-primary"></i> FreshFlow
         </a>
-        <button class="btn btn-outline-primary" id="dashboard-sidebar-toggle">
-          <i class="bi bi-list fs-4"></i>
-        </button>
+        <div class="d-flex align-items-center gap-2 gap-sm-3">
+          <button class="btn btn-sm btn-outline-primary rounded-circle" id="mobile-theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme" style="width: 36px; height: 36px; padding: 0; display: inline-flex; align-items: center; justify-content: center;">
+            <i class="bi bi-moon-stars-fill" id="mobile-theme-toggle-icon"></i>
+          </button>
+          <button class="btn btn-sm btn-outline-primary rounded-circle" id="mobile-rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL" style="width: 36px; height: 36px; padding: 0; display: inline-flex; align-items: center; justify-content: center;">
+            <i class="bi bi-arrow-left-right"></i>
+          </button>
+          <button class="btn btn-sm btn-outline-primary rounded-circle" id="dashboard-sidebar-toggle" aria-label="Toggle Navigation" style="width: 36px; height: 36px; padding: 0; display: inline-flex; align-items: center; justify-content: center;">
+            <i class="bi bi-list fs-5"></i>
+          </button>
+        </div>
       </div>
 
       <!-- TAB 1: OVERVIEW -->
@@ -88,9 +108,9 @@
         </div>
 
         <!-- Quick Stats Widgets Grid -->
-        <div class="row g-4 mb-4">
-          <div class="col-md-3 col-sm-6">
-            <div class="stat-widget-card">
+        <div class="row g-3 g-md-4 mb-4">
+          <div class="col-md-3 col-6">
+            <div class="stat-widget-card h-100">
               <div class="stat-icon-wrapper bg-primary-subtle text-primary">
                 <i class="bi bi-box-seam"></i>
               </div>
@@ -101,8 +121,8 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-6">
-            <div class="stat-widget-card">
+          <div class="col-md-3 col-6">
+            <div class="stat-widget-card h-100">
               <div class="stat-icon-wrapper bg-success-subtle text-success">
                 <i class="bi bi-check-circle"></i>
               </div>
@@ -113,8 +133,8 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-6">
-            <div class="stat-widget-card">
+          <div class="col-md-3 col-6">
+            <div class="stat-widget-card h-100">
               <div class="stat-icon-wrapper bg-info-subtle text-info">
                 <i class="bi bi-wallet2"></i>
               </div>
@@ -125,8 +145,8 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-6">
-            <div class="stat-widget-card">
+          <div class="col-md-3 col-6">
+            <div class="stat-widget-card h-100">
               <div class="stat-icon-wrapper bg-warning-subtle text-warning">
                 <i class="bi bi-star"></i>
               </div>
@@ -250,25 +270,25 @@
         <h2 class="fw-bold mb-4">My Active Orders</h2>
         <div class="row g-4">
           <div class="col-md-6">
-            <div class="card glass-card p-4 rounded-4 shadow-sm">
+            <div class="card glass-card p-4 rounded-4 shadow-sm h-100">
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <span class="badge bg-primary rounded-pill">#FF-884920</span>
                 <span class="badge bg-info text-dark">Washing Stage</span>
               </div>
               <h5 class="fw-bold">2-Piece Suit & 3 Shirts</h5>
               <p class="text-muted small mb-3">Valet: David Miller | ETA: Today 6:15 PM</p>
-              <a href="tracking.html" class="btn btn-outline-primary w-100">Live RFID Tracking</a>
+              <a href="tracking.html" class="btn btn-outline-primary w-100 mt-auto">Live RFID Tracking</a>
             </div>
           </div>
           <div class="col-md-6">
-            <div class="card glass-card p-4 rounded-4 shadow-sm">
+            <div class="card glass-card p-4 rounded-4 shadow-sm h-100">
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <span class="badge bg-secondary rounded-pill">#FF-885001</span>
                 <span class="badge bg-warning text-dark">Scheduled Pickup</span>
               </div>
               <h5 class="fw-bold">Wash & Fold Bag (approx 15 lbs)</h5>
               <p class="text-muted small mb-3">Valet Arriving: Tomorrow at 9:00 AM</p>
-              <button class="btn btn-outline-danger w-100">Reschedule Window</button>
+              <button class="btn btn-outline-danger w-100 mt-auto">Reschedule Window</button>
             </div>
           </div>
         </div>
@@ -313,7 +333,7 @@
 
       <!-- TAB 5: SAVED ADDRESSES -->
       <div id="tab-addresses" class="dashboard-tab-content d-none">
-        <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
           <h2 class="fw-bold mb-0">Saved Pickup Addresses</h2>
           <button class="btn btn-fresh-primary py-2 px-3" id="add-address-btn"><i class="bi bi-plus-lg"></i> Add New Address</button>
         </div>
@@ -343,17 +363,17 @@
       <!-- TAB 6: NOTIFICATIONS -->
       <div id="tab-notifications" class="dashboard-tab-content d-none">
         <h2 class="fw-bold mb-4">Notifications</h2>
-        <div class="list-group max-w-700">
-          <div class="list-group-item p-3 rounded-3 mb-2 border">
-            <div class="d-flex justify-content-between">
-              <h6 class="fw-bold text-primary mb-1"><i class="bi bi-droplet-half me-2"></i> Garments In Washing Drum</h6>
+        <div class="list-group max-w-700 mx-auto mx-md-0">
+          <div class="list-group-item p-3 p-md-4 rounded-3 mb-3 border glass-card shadow-sm">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+              <h6 class="fw-bold text-primary mb-0"><i class="bi bi-droplet-half me-2"></i> Garments In Washing Drum</h6>
               <small class="text-muted">30 mins ago</small>
             </div>
             <p class="mb-0 text-muted small">Order #FF-884920 has entered the eco-friendly ozone wash cycle.</p>
           </div>
-          <div class="list-group-item p-3 rounded-3 mb-2 border">
-            <div class="d-flex justify-content-between">
-              <h6 class="fw-bold text-success mb-1"><i class="bi bi-tag me-2"></i> 20% Discount Promo Applied</h6>
+          <div class="list-group-item p-3 p-md-4 rounded-3 mb-3 border glass-card shadow-sm">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-2">
+              <h6 class="fw-bold text-success mb-0"><i class="bi bi-tag me-2"></i> 20% Discount Promo Applied</h6>
               <small class="text-muted">Yesterday</small>
             </div>
             <p class="mb-0 text-muted small">Your VIP monthly subscription renewed automatically with $100 bonus credit.</p>
@@ -362,14 +382,14 @@
       </div>
 
       <!-- TAB 7: OFFERS -->
-      <div id="tab-offers" class="dashboard-tab-content d-none">
-        <h2 class="fw-bold mb-4">Exclusive Coupons & Offers</h2>
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="card p-4 rounded-4 bg-primary text-white">
-              <span class="badge bg-white text-primary rounded-pill mb-2 width-fit">PROMO CODE</span>
-              <h3 class="fw-bold">FRESH20</h3>
-              <p class="mb-0">Get 20% OFF your next dry cleaning order over $40.</p>
+      <div id="tab-offers" class="dashboard-tab-content d-none text-center">
+        <h2 class="fw-bold mb-4 text-center">Exclusive Coupons & Offers</h2>
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-6 col-md-8 text-center mx-auto">
+            <div class="card p-4 rounded-4 bg-primary text-white mx-auto shadow-sm" style="max-width: 500px;">
+              <span class="badge bg-white text-primary rounded-pill mb-3 width-fit mx-auto px-3 py-2 fw-bold">PROMO CODE</span>
+              <h3 class="fw-bold text-white mb-2 fs-2">FRESH20</h3>
+              <p class="mb-0 text-white-50">Get 20% OFF your next dry cleaning order over $40.</p>
             </div>
           </div>
         </div>
@@ -392,7 +412,9 @@
               <label class="form-label fw-semibold">Phone Number</label>
               <input type="tel" class="form-control rounded-pill" value="+1 (555) 392-1980">
             </div>
-            <button type="button" class="btn btn-fresh-primary py-2 px-4" onclick="alert('Profile Updated Successfully!')">Save Preferences</button>
+            <div class="text-center mt-4">
+              <button type="button" class="btn btn-fresh-primary py-2 px-5 rounded-pill" onclick="alert('Profile Updated Successfully!')"><i class="bi bi-check2-circle me-1"></i> Save Preferences</button>
+            </div>
           </form>
         </div>
       </div>
@@ -431,6 +453,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
   <script src="js/dashboard.js"></script>
 </body>
 </html>

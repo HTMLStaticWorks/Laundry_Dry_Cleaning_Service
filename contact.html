@@ -20,8 +20,6 @@
     <p class="text-white mt-4 fw-bold font-heading">CONTACT FRESHFLOW</p>
   </div>
 
-  <canvas id="bubbles-canvas"></canvas>
-
   <!-- Navbar -->
   <nav class="navbar fresh-navbar">
     <div class="container-fluid px-3 px-xl-5 d-flex align-items-center justify-content-between flex-nowrap">
@@ -43,8 +41,8 @@
         <button class="btn btn-sm btn-outline-info rounded-circle p-2" id="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
           <i class="bi bi-moon-stars-fill fs-6" id="theme-toggle-icon"></i>
         </button>
-        <button class="btn btn-sm btn-outline-info rounded-pill px-2 py-1 fw-semibold me-1" id="rtl-toggle-btn" title="Toggle RTL (Right-To-Left)" aria-label="Toggle RTL">
-          <i class="bi bi-translate me-1"></i> <span id="rtl-toggle-text">RTL</span>
+        <button class="btn btn-sm btn-outline-info rounded-circle p-2 me-1" id="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+          <i class="bi bi-arrow-left-right fs-6"></i>
         </button>
         <a href="login.html" class="btn btn-fresh-outline py-2 px-3">Login</a>
         <a href="dashboard.html" class="btn btn-fresh-primary py-2 px-3"><i class="bi bi-speedometer2"></i> Dashboard</a>
@@ -68,7 +66,7 @@
           <i class="bi bi-moon-stars-fill text-info" id="mobile-theme-toggle-icon"></i>
         </button>
         <button class="btn-icon-toggle" id="mobile-rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
-          <i class="bi bi-translate text-info"></i>
+          <i class="bi bi-arrow-left-right text-info"></i>
         </button>
         <button class="btn-drawer-close" id="mobile-drawer-close" aria-label="Close Menu">
           <i class="bi bi-x-lg"></i>
@@ -96,25 +94,31 @@
     </div>
   </div>
 
-  <!-- Header Banner -->
-  <section class="py-5 mt-5 text-center bg-white border-bottom">
-    <div class="container py-4" data-aos="fade-up">
-      <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-3">WE ARE HERE FOR YOU</span>
-      <h1 class="display-4 fw-bold mb-3">Get In Touch With Concierge</h1>
-      <p class="lead text-muted max-w-700 mx-auto">Have questions about dry cleaning delicate garments or enterprise bulk pickup? Contact our team.</p>
+  <!-- Header Banner with Video Stream -->
+  <section class="py-5 mt-5 text-center text-white position-relative overflow-hidden" style="background: #0F172A;">
+    <div class="hero-video-wrap">
+      <video autoplay loop muted playsinline>
+        <source src="videos/4119968-hd_1920_1080_30fps.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
+    <div class="container py-4 position-relative z-2" data-aos="fade-up">
+      <span class="badge bg-primary text-white fw-bold px-3 py-2 rounded-pill mb-3 shadow-sm">WE ARE HERE FOR YOU</span>
+      <h1 class="display-4 fw-bold mb-3 text-white">Get In Touch With Concierge</h1>
+      <p class="lead text-white-50 max-w-700 mx-auto">Have questions about dry cleaning delicate garments or enterprise bulk pickup? Contact our team.</p>
     </div>
   </section>
 
   <!-- Coverage Checker Section -->
   <section class="py-4 bg-info-subtle bg-opacity-30 border-bottom">
     <div class="container text-center">
-      <h5 class="fw-bold mb-2"><i class="bi bi-geo-alt-fill text-primary me-2"></i> Check Valet Pickup Coverage</h5>
+      <h5 class="fw-bold mb-2 text-dark"><i class="bi bi-geo-alt-fill text-primary me-2"></i> Check Valet Pickup Coverage</h5>
       <p class="text-muted small mb-3">Enter your zip code below to check if free valet pickup is available in your area.</p>
       <div class="row justify-content-center">
-        <div class="col-md-5">
-          <div class="input-group">
+        <div class="col-lg-6 col-md-8">
+          <div class="input-group coverage-checker-group">
             <input type="text" id="zip-code-input" class="form-control rounded-start-pill px-3" placeholder="Enter Zip Code (e.g. 10019)">
-            <button class="btn btn-fresh-primary rounded-end-pill px-4" onclick="checkCoverage()">Check Area</button>
+            <button class="btn btn-fresh-primary rounded-end-pill px-4 fw-bold" onclick="checkCoverage()">Check Area</button>
           </div>
           <div id="coverage-result" class="mt-2 fw-bold text-success"></div>
         </div>
@@ -129,25 +133,25 @@
         
         <div class="col-lg-6" data-aos="fade-right">
           <div class="glass-card p-4 p-md-5 rounded-4 shadow">
-            <h3 class="fw-bold mb-4">Send Us A Message</h3>
+            <h3 class="fw-bold mb-4 text-dark">Send Us A Message</h3>
             <form onsubmit="event.preventDefault(); alert('Message sent! Our valet team will reply shortly.'); this.reset();">
               <div class="mb-3">
-                <label class="form-label fw-semibold">Your Name</label>
-                <input type="text" class="form-control rounded-pill py-2 px-3" required>
+                <label class="form-label fw-semibold text-dark">Your Name</label>
+                <input type="text" class="form-control rounded-pill py-2 px-3" placeholder="Sophia Rodriguez" required>
               </div>
               <div class="mb-3">
-                <label class="form-label fw-semibold">Email Address</label>
-                <input type="email" class="form-control rounded-pill py-2 px-3" required>
+                <label class="form-label fw-semibold text-dark">Email Address</label>
+                <input type="email" class="form-control rounded-pill py-2 px-3" placeholder="sophia@example.com" required>
               </div>
               <div class="mb-3">
-                <label class="form-label fw-semibold">Phone Number</label>
-                <input type="tel" class="form-control rounded-pill py-2 px-3">
+                <label class="form-label fw-semibold text-dark">Phone Number</label>
+                <input type="tel" class="form-control rounded-pill py-2 px-3" placeholder="+1 (800) 555-0199">
               </div>
               <div class="mb-4">
-                <label class="form-label fw-semibold">Message / Inquiry</label>
-                <textarea class="form-control rounded-4 p-3" rows="4" required></textarea>
+                <label class="form-label fw-semibold text-dark">Message / Inquiry</label>
+                <textarea class="form-control rounded-4 p-3" rows="4" placeholder="How can our valet concierge help you today?" required></textarea>
               </div>
-              <button type="submit" class="btn btn-fresh-primary w-100 py-3">Send Message</button>
+              <button type="submit" class="btn btn-fresh-primary w-100 py-3 fw-bold contact-submit-btn"><i class="bi bi-send-fill me-2"></i> Send Message Now</button>
             </form>
           </div>
         </div>
@@ -161,9 +165,9 @@
 
             <div class="card p-4 rounded-4 border-0 shadow-sm glass-card">
               <div class="d-flex align-items-center gap-3">
-                <div class="bg-primary text-white p-3 rounded-circle fs-4"><i class="bi bi-geo-alt-fill"></i></div>
+                <div class="bg-primary text-white p-3 rounded-circle fs-4 flex-shrink-0"><i class="bi bi-geo-alt-fill"></i></div>
                 <div>
-                  <h6 class="fw-bold mb-0">Flagship Headquarters</h6>
+                  <h6 class="fw-bold mb-0 text-dark">Flagship Headquarters</h6>
                   <p class="text-muted mb-0">742 Fifth Avenue, Manhattan, NY 10019</p>
                 </div>
               </div>
@@ -171,9 +175,9 @@
 
             <div class="card p-4 rounded-4 border-0 shadow-sm glass-card">
               <div class="d-flex align-items-center gap-3">
-                <div class="bg-success text-white p-3 rounded-circle fs-4"><i class="bi bi-telephone-fill"></i></div>
+                <div class="bg-success text-white p-3 rounded-circle fs-4 flex-shrink-0"><i class="bi bi-telephone-fill"></i></div>
                 <div>
-                  <h6 class="fw-bold mb-0">Phone Concierge</h6>
+                  <h6 class="fw-bold mb-0 text-dark">Phone Concierge</h6>
                   <p class="text-muted mb-0">+1 (800) 555-FRESH (Available 24/7)</p>
                 </div>
               </div>
@@ -206,11 +210,11 @@
           <p class="text-white-50 mb-4">
             Luxury eco-friendly laundry & dry cleaning service powered by state-of-the-art ozone technology and white-glove valet pickup.
           </p>
-          <div class="d-flex gap-3">
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-linkedin"></i></a>
+          <div class="footer-social-icons">
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
 

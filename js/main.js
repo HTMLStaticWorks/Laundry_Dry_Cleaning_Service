@@ -8,12 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
   initPageLoader();
   initNavbarScroll();
   initMobileDrawer();
-  initBubblesCanvas();
+  // initBubblesCanvas(); // Disabled as requested
   initThreeJSHero();
   initGSAPAnimations();
   initCounters();
   initLaundryInteractions();
   initThemeAndRTL();
+  initPasswordToggles();
+  initBackToTop();
 });
 
 /* --------------------------------------------------------------------------
@@ -26,7 +28,7 @@ function initPageLoader() {
       loader.style.opacity = '0';
       loader.style.visibility = 'hidden';
       document.body.classList.add('loaded');
-    }, 1200);
+    }, 1000);
   }
 }
 
@@ -80,100 +82,14 @@ function initMobileDrawer() {
 }
 
 /* --------------------------------------------------------------------------
-   4. CANVASES - FLOATING SOAP BUBBLES BACKGROUND
+   4. CANVASES - FLOATING SOAP BUBBLES BACKGROUND (DISABLED)
    -------------------------------------------------------------------------- */
 function initBubblesCanvas() {
-  const canvas = document.getElementById('bubbles-canvas');
-  if (!canvas) return;
-
-  const ctx = canvas.getContext('2d');
-  let width = canvas.width = window.innerWidth;
-  let height = canvas.height = window.innerHeight;
-
-  window.addEventListener('resize', () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  });
-
-  const bubbles = [];
-  const bubbleCount = Math.floor(width / 35);
-
-  class SoapBubble {
-    constructor() {
-      this.reset();
-    }
-
-    reset() {
-      this.x = Math.random() * width;
-      this.y = height + Math.random() * 100;
-      this.radius = Math.random() * 18 + 6;
-      this.speedY = Math.random() * 1.5 + 0.5;
-      this.speedX = Math.sin(Math.random() * Math.PI) * 0.8;
-      this.opacity = Math.random() * 0.6 + 0.2;
-      this.hue = 190 + Math.random() * 30; // Sky blue / fresh aqua range
-    }
-
-    update() {
-      this.y -= this.speedY;
-      this.x += Math.sin(this.y * 0.01) * 0.5;
-
-      if (this.y < -50) {
-        this.reset();
-      }
-    }
-
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-
-      // Iridescent bubble gradient
-      const grad = ctx.createRadialGradient(
-        this.x - this.radius * 0.3, 
-        this.y - this.radius * 0.3, 
-        this.radius * 0.1, 
-        this.x, 
-        this.y, 
-        this.radius
-      );
-      grad.addColorStop(0, `hsla(${this.hue}, 100%, 95%, ${this.opacity + 0.2})`);
-      grad.addColorStop(0.7, `hsla(${this.hue}, 80%, 75%, ${this.opacity})`);
-      grad.addColorStop(1, `hsla(${this.hue + 20}, 90%, 65%, ${this.opacity * 0.4})`);
-
-      ctx.fillStyle = grad;
-      ctx.fill();
-
-      // Bubble highlight ring
-      ctx.lineWidth = 1.5;
-      ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity + 0.3})`;
-      ctx.stroke();
-
-      // Shiny reflection curve
-      ctx.beginPath();
-      ctx.arc(this.x - this.radius * 0.3, this.y - this.radius * 0.3, this.radius * 0.3, Math.PI * 1.2, Math.PI * 1.8);
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity + 0.5})`;
-      ctx.stroke();
-    }
-  }
-
-  for (let i = 0; i < bubbleCount; i++) {
-    bubbles.push(new SoapBubble());
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-    bubbles.forEach(b => {
-      b.update();
-      b.draw();
-    });
-    requestAnimationFrame(animate);
-  }
-
-  animate();
+  // Unwanted bubble particle effect disabled globally
 }
 
 /* --------------------------------------------------------------------------
-   5. THREE.JS INTERACTIVE 3D HERO CANVAS (Spinning Metallic Washing Machine Drum & Orbs)
+   5. THREE.JS INTERACTIVE 3D HERO CANVAS
    -------------------------------------------------------------------------- */
 function initThreeJSHero() {
   const container = document.getElementById('hero-3d-canvas');
@@ -216,26 +132,6 @@ function initThreeJSHero() {
   const innerWindow = new THREE.Mesh(innerGeo, innerMat);
   drumGroup.add(innerWindow);
 
-  // Floating Water & Soap Spheres inside
-  const sphereGroup = new THREE.Group();
-  const sphereGeo = new THREE.SphereGeometry(0.22, 16, 16);
-  const sphereMat = new THREE.MeshStandardMaterial({
-    color: 0x10B981,
-    roughness: 0.1,
-    metalness: 0.6
-  });
-
-  for (let i = 0; i < 12; i++) {
-    const s = new THREE.Mesh(sphereGeo, sphereMat);
-    s.position.set(
-      (Math.random() - 0.5) * 2.2,
-      (Math.random() - 0.5) * 2.2,
-      (Math.random() - 0.5) * 1.5
-    );
-    sphereGroup.add(s);
-  }
-
-  drumGroup.add(sphereGroup);
   scene.add(drumGroup);
 
   // Lights
@@ -263,10 +159,8 @@ function initThreeJSHero() {
   function renderScene() {
     requestAnimationFrame(renderScene);
 
-    drumGroup.rotation.z += 0.008; // Spinning drum motion
-    sphereGroup.rotation.y -= 0.015;
+    drumGroup.rotation.z += 0.008;
 
-    // Smooth lerp mouse rotation
     drumGroup.rotation.x += (mouseY - drumGroup.rotation.x) * 0.05;
     drumGroup.rotation.y += (mouseX - drumGroup.rotation.y) * 0.05;
 
@@ -292,7 +186,6 @@ function initGSAPAnimations() {
     gsap.registerPlugin(ScrollTrigger);
   }
 
-  // Fade Up elements
   gsap.utils.toArray('.gsap-fade-up').forEach(elem => {
     gsap.from(elem, {
       y: 40,
@@ -306,7 +199,6 @@ function initGSAPAnimations() {
     });
   });
 
-  // Stagger Cards
   const cards = document.querySelectorAll('.gsap-stagger-card');
   if (cards.length > 0) {
     gsap.from(cards, {
@@ -341,7 +233,7 @@ function initCounters() {
       counters.forEach(counter => {
         const target = parseInt(counter.getAttribute('data-target') || '0', 10);
         let count = 0;
-        const step = Math.ceil(target / 50);
+        const step = Math.max(1, Math.ceil(target / 50));
         const timer = setInterval(() => {
           count += step;
           if (count >= target) {
@@ -357,10 +249,9 @@ function initCounters() {
 }
 
 /* --------------------------------------------------------------------------
-   8. INTERACTIVE LAUNDRY UTILITIES & MODALS
+   8. INTERACTIVE LAUNDRY UTILITIES
    -------------------------------------------------------------------------- */
 function initLaundryInteractions() {
-  // Quick Pickup Schedule Form Submission Handler
   const quickForm = document.getElementById('quick-pickup-form');
   if (quickForm) {
     quickForm.addEventListener('submit', (e) => {
@@ -370,7 +261,6 @@ function initLaundryInteractions() {
     });
   }
 
-  // Interactive Price Calculator inside pricing section
   const calcInputs = document.querySelectorAll('.calc-qty-input');
   if (calcInputs.length > 0) {
     calcInputs.forEach(input => {
@@ -394,17 +284,24 @@ function calculateOrderTotal() {
 }
 
 /* --------------------------------------------------------------------------
-   9. DARK THEME & RTL TOGGLES
+   9. GLOBAL DARK THEME & RTL TOGGLES
    -------------------------------------------------------------------------- */
 function initThemeAndRTL() {
-  const themeBtns = [document.getElementById('theme-toggle-btn'), document.getElementById('mobile-theme-toggle-btn')];
-  const rtlBtns = [document.getElementById('rtl-toggle-btn'), document.getElementById('mobile-rtl-toggle-btn')];
+  if (window.__theme_and_rtl_inited) return;
+  window.__theme_and_rtl_inited = true;
+
+  // Query all buttons matching theme or rtl IDs
+  const themeBtns = document.querySelectorAll('#theme-toggle-btn, #mobile-theme-toggle-btn, .theme-toggle-trigger');
+  const rtlBtns = document.querySelectorAll('#rtl-toggle-btn, #mobile-rtl-toggle-btn, .rtl-toggle-trigger');
 
   // Load saved theme
   const savedTheme = localStorage.getItem('ff_theme');
   if (savedTheme === 'dark') {
     document.body.classList.add('dark-mode');
     updateThemeIcons(true);
+  } else {
+    document.body.classList.remove('dark-mode');
+    updateThemeIcons(false);
   }
 
   // Load saved RTL
@@ -412,33 +309,34 @@ function initThemeAndRTL() {
   if (savedRTL === 'true') {
     document.documentElement.setAttribute('dir', 'rtl');
     updateRTLButtons(true);
+  } else {
+    document.documentElement.removeAttribute('dir');
+    updateRTLButtons(false);
   }
 
   themeBtns.forEach(btn => {
-    if (btn) {
-      btn.addEventListener('click', () => {
-        const isDark = document.body.classList.toggle('dark-mode');
-        localStorage.setItem('ff_theme', isDark ? 'dark' : 'light');
-        updateThemeIcons(isDark);
-      });
-    }
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isDark = document.body.classList.toggle('dark-mode');
+      localStorage.setItem('ff_theme', isDark ? 'dark' : 'light');
+      updateThemeIcons(isDark);
+    });
   });
 
   rtlBtns.forEach(btn => {
-    if (btn) {
-      btn.addEventListener('click', () => {
-        const currentDir = document.documentElement.getAttribute('dir');
-        const isRTL = currentDir !== 'rtl';
-        if (isRTL) {
-          document.documentElement.setAttribute('dir', 'rtl');
-          localStorage.setItem('ff_rtl', 'true');
-        } else {
-          document.documentElement.removeAttribute('dir');
-          localStorage.setItem('ff_rtl', 'false');
-        }
-        updateRTLButtons(isRTL);
-      });
-    }
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const currentDir = document.documentElement.getAttribute('dir');
+      const isRTL = currentDir !== 'rtl';
+      if (isRTL) {
+        document.documentElement.setAttribute('dir', 'rtl');
+        localStorage.setItem('ff_rtl', 'true');
+      } else {
+        document.documentElement.removeAttribute('dir');
+        localStorage.setItem('ff_rtl', 'false');
+      }
+      updateRTLButtons(isRTL);
+    });
   });
 
   function updateThemeIcons(isDark) {
@@ -458,15 +356,84 @@ function initThemeAndRTL() {
   }
 
   function updateRTLButtons(isRTL) {
-    const desktopText = document.getElementById('rtl-toggle-text');
+    const desktopTexts = document.querySelectorAll('#rtl-toggle-text, .rtl-text-span');
     const mobileText = document.getElementById('mobile-rtl-text');
 
-    if (desktopText) {
-      desktopText.innerText = isRTL ? 'LTR' : 'RTL';
-    }
+    desktopTexts.forEach(el => {
+      el.innerText = isRTL ? 'LTR' : 'RTL';
+    });
     if (mobileText) {
       mobileText.innerText = isRTL ? 'LTR Mode' : 'RTL Mode';
     }
   }
 }
+
+/* --------------------------------------------------------------------------
+   10. PASSWORD VISIBILITY EYE TOGGLE
+   -------------------------------------------------------------------------- */
+function initPasswordToggles() {
+  const toggleBtns = document.querySelectorAll('.password-toggle-btn');
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const wrapper = btn.closest('.password-input-wrapper');
+      if (!wrapper) return;
+      const input = wrapper.querySelector('input');
+      const icon = btn.querySelector('i');
+      if (!input || !icon) return;
+
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.className = 'bi bi-eye-slash-fill';
+      } else {
+        input.type = 'password';
+        icon.className = 'bi bi-eye-fill';
+      }
+    });
+  });
+}
+
+window.togglePasswordVisibility = function(inputId, btn) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  const icon = btn ? btn.querySelector('i') : null;
+  if (input.type === 'password') {
+    input.type = 'text';
+    if (icon) icon.className = 'bi bi-eye-slash-fill';
+  } else {
+    input.type = 'password';
+    if (icon) icon.className = 'bi bi-eye-fill';
+  }
+};
+
+/* --------------------------------------------------------------------------
+   11. BACK-TO-TOP FLOATING BUTTON & SMOOTH SCROLL
+   -------------------------------------------------------------------------- */
+function initBackToTop() {
+  let backBtn = document.getElementById('back-to-top-btn');
+  if (!backBtn) {
+    backBtn = document.createElement('button');
+    backBtn.id = 'back-to-top-btn';
+    backBtn.className = 'back-to-top-btn';
+    backBtn.setAttribute('aria-label', 'Back to Top');
+    backBtn.setAttribute('title', 'Scroll to top');
+    backBtn.innerHTML = '<i class="bi bi-arrow-up-short"></i>';
+    document.body.appendChild(backBtn);
+  }
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      backBtn.classList.add('visible');
+    } else {
+      backBtn.classList.remove('visible');
+    }
+  });
+
+  backBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
 

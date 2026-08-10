@@ -13,69 +13,143 @@
 <body class="d-flex align-items-center justify-content-center min-vh-100 position-relative overflow-hidden" style="background: #0F172A;">
 
   <!-- Local Background Video Stream -->
-  <div class="position-absolute top-0 start-0 w-100 h-100 opacity-30 z-0">
-    <video autoplay loop muted playsinline class="w-100 h-100 object-fit-cover">
+  <div class="hero-video-wrap">
+    <video autoplay loop muted playsinline>
       <source src="videos/4119968-hd_1920_1080_30fps.mp4" type="video/mp4">
     </video>
+    <div class="hero-video-overlay"></div>
   </div>
 
-  <canvas id="bubbles-canvas"></canvas>
+  <!-- Top Right Corner Floating Controls (Outside Card) -->
+  <div class="position-fixed top-0 end-0 m-3 z-3 d-flex gap-2">
+    <button class="btn btn-sm btn-outline-info bg-white bg-opacity-75 backdrop-blur rounded-circle p-2 shadow-sm" id="theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">
+      <i class="bi bi-moon-stars-fill fs-6" id="theme-toggle-icon"></i>
+    </button>
+    <button class="btn btn-sm btn-outline-info bg-white bg-opacity-75 backdrop-blur rounded-circle p-2 shadow-sm" id="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+      <i class="bi bi-arrow-left-right fs-6"></i>
+    </button>
+  </div>
 
   <div class="container position-relative z-2 py-5">
     <div class="row justify-content-center">
-      <div class="col-md-6">
+      <div class="col-lg-6 col-md-8 col-sm-11">
         
-        <div class="text-center mb-4">
-          <a href="index.html" class="navbar-brand-logo text-white fs-2 d-inline-block">
-            <i class="bi bi-droplet-half text-info me-2"></i> FreshFlow
-          </a>
-          <p class="text-white-50 mt-1">Join FreshFlow for 20% OFF your first pickup</p>
-        </div>
+        <div class="glass-card p-3 p-sm-4 p-md-5 rounded-4 shadow-lg border">
+          
+          <!-- Card Header with Centered Brand Logo -->
+          <div class="text-center pb-3 mb-4 border-bottom">
+            <a href="index.html" class="navbar-brand-logo text-dark fs-2 justify-content-center mb-1">
+              <i class="bi bi-droplet-half text-info me-1"></i> FreshFlow
+            </a>
+          </div>
 
-        <div class="glass-card p-4 p-md-5 rounded-4 shadow-lg">
+          <div class="text-center mb-4">
+            <h4 class="fw-bold mb-1 text-dark">Create Account</h4>
+            <p class="text-muted small">Join FreshFlow for 20% OFF your first pickup</p>
+          </div>
+
           <form onsubmit="event.preventDefault(); window.location.href='dashboard.html';">
-            <div class="row g-3 mb-3">
-              <div class="col-md-6">
-                <label class="form-label fw-semibold">First Name</label>
-                <input type="text" class="form-control rounded-pill py-2 px-3" placeholder="Alexander" required>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label fw-semibold">Last Name</label>
-                <input type="text" class="form-control rounded-pill py-2 px-3" placeholder="Wright" required>
-              </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold text-dark">First Name</label>
+              <input type="text" class="form-control rounded-pill py-2 px-3" placeholder="Alexander" required>
             </div>
 
             <div class="mb-3">
-              <label class="form-label fw-semibold">Email Address</label>
+              <label class="form-label fw-semibold text-dark">Last Name</label>
+              <input type="text" class="form-control rounded-pill py-2 px-3" placeholder="Wright" required>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label fw-semibold text-dark">Email Address</label>
               <input type="email" class="form-control rounded-pill py-2 px-3" placeholder="alexander@example.com" required>
             </div>
 
             <div class="mb-3">
-              <label class="form-label fw-semibold">Phone Number (For Driver SMS)</label>
+              <label class="form-label fw-semibold text-dark">Phone Number (For Driver SMS)</label>
               <input type="tel" class="form-control rounded-pill py-2 px-3" placeholder="+1 (555) 000-0000" required>
             </div>
 
-            <div class="mb-4">
-              <label class="form-label fw-semibold">Create Password</label>
-              <input type="password" class="form-control rounded-pill py-2 px-3" placeholder="••••••••••••" required>
+            <div class="mb-3">
+              <label class="form-label fw-semibold text-dark">Create Password</label>
+              <div class="password-input-wrapper">
+                <input type="password" id="register-password" class="form-control rounded-pill py-2 ps-3 pe-5" placeholder="••••••••••••" required>
+                <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('register-password', this)" aria-label="Toggle Password Visibility">
+                  <i class="bi bi-eye-fill"></i>
+                </button>
+              </div>
             </div>
 
-            <button type="submit" class="btn btn-fresh-primary w-100 py-3 mb-3">Create Free Account</button>
+            <div class="form-check mb-4 d-flex align-items-center gap-2">
+              <input class="form-check-input flex-shrink-0" type="checkbox" id="termsCheck" required>
+              <label class="form-check-label text-muted small" for="termsCheck">
+                I agree to the <a href="#termsModal" data-bs-toggle="modal" class="text-primary fw-semibold text-decoration-underline">Terms of Service</a> and <a href="#privacyModal" data-bs-toggle="modal" class="text-primary fw-semibold text-decoration-underline">Privacy Policy</a>
+              </label>
+            </div>
 
-            <div class="text-center">
+            <button type="submit" class="btn btn-fresh-primary w-100 py-3 mb-3 fw-bold text-nowrap"><i class="bi bi-person-plus-fill me-2"></i> Create Free Account</button>
+
+            <div class="text-center text-muted small mb-3">OR SIGN UP WITH</div>
+
+            <div class="d-flex gap-2 w-100 mb-4">
+              <button type="button" class="btn social-login-btn flex-fill py-2 rounded-pill"><i class="bi bi-google text-danger me-1"></i> Google</button>
+              <button type="button" class="btn social-login-btn flex-fill py-2 rounded-pill"><i class="bi bi-apple text-dark me-1"></i> Apple</button>
+            </div>
+
+            <div class="text-center pt-2 border-top">
               <small class="text-muted">Already have an account? <a href="login.html" class="text-primary fw-bold">Sign In</a></small>
             </div>
           </form>
-        </div>
-
-        <div class="text-center mt-4">
-          <a href="index.html" class="text-white-50 small"><i class="bi bi-arrow-left me-1"></i> Return to Homepage</a>
         </div>
 
       </div>
     </div>
   </div>
 
+  <!-- Terms of Service Modal -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content rounded-4 border-0 shadow">
+        <div class="modal-header border-bottom">
+          <h5 class="modal-title fw-bold text-dark"><i class="bi bi-file-text text-primary me-2"></i> Terms of Service</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-dark small">
+          <p>Welcome to FreshFlow Laundry & Dry Cleaning. By creating an account, you agree to our service terms:</p>
+          <h6 class="fw-bold mt-3">1. Pickup & Delivery Service</h6>
+          <p class="text-muted">Our valet drivers collect and deliver garments according to your chosen timeslot. Please ensure garments are placed in your FreshFlow valet bag.</p>
+          <h6 class="fw-bold mt-3">2. Garment Care & Guarantee</h6>
+          <p class="text-muted">We use 100% eco-friendly solvents and hydro-clean technology. If you are not completely satisfied, we re-wash free of charge within 48 hours.</p>
+        </div>
+        <div class="modal-footer border-top">
+          <button type="button" class="btn btn-fresh-primary rounded-pill px-4" data-bs-dismiss="modal">I Understand</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content rounded-4 border-0 shadow">
+        <div class="modal-header border-bottom">
+          <h5 class="modal-title fw-bold text-dark"><i class="bi bi-shield-lock text-primary me-2"></i> Privacy Policy</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-dark small">
+          <p>Your privacy is important to us. Here is how FreshFlow protects your data:</p>
+          <h6 class="fw-bold mt-3">1. Information Collection</h6>
+          <p class="text-muted">We only collect essential details (name, email, delivery address, phone) to fulfill your laundry valet orders.</p>
+          <h6 class="fw-bold mt-3">2. Data Protection</h6>
+          <p class="text-muted">Your payment and personal data are encrypted end-to-end. We never sell or share your data with third parties.</p>
+        </div>
+        <div class="modal-footer border-top">
+          <button type="button" class="btn btn-fresh-primary rounded-pill px-4" data-bs-dismiss="modal">Accept Policy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

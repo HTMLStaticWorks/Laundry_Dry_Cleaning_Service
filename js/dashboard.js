@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initSchedulePickupModal();
   initLiveTracker();
   initAddressManager();
+  // Theme and RTL are initialized once globally by main.js
+  const savedTheme = localStorage.getItem('ff_theme');
+  if (savedTheme === 'dark') document.body.classList.add('dark-mode');
+  const savedRTL = localStorage.getItem('ff_rtl');
+  if (savedRTL === 'true') document.documentElement.setAttribute('dir', 'rtl');
 });
 
 /* --------------------------------------------------------------------------
@@ -51,12 +56,46 @@ function initDashboardTabs() {
 function initDashboardSidebar() {
   const toggleBtn = document.getElementById('dashboard-sidebar-toggle');
   const sidebar = document.querySelector('.dashboard-sidebar');
+  let overlay = document.getElementById('dashboard-sidebar-overlay');
+  const navItems = document.querySelectorAll('.dashboard-nav-item');
 
-  if (toggleBtn && sidebar) {
-    toggleBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
+  if (!overlay && sidebar) {
+    overlay = document.createElement('div');
+    overlay.id = 'dashboard-sidebar-overlay';
+    overlay.className = 'dashboard-sidebar-overlay';
+    document.body.appendChild(overlay);
+  }
+
+  function openSidebar() {
+    if (sidebar) sidebar.classList.add('active');
+    if (overlay) overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSidebar() {
+    if (sidebar) sidebar.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (sidebar && sidebar.classList.contains('active')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
     });
   }
+
+  if (overlay) {
+    overlay.addEventListener('click', closeSidebar);
+  }
+
+  navItems.forEach(item => {
+    item.addEventListener('click', closeSidebar);
+  });
 }
 
 /* --------------------------------------------------------------------------

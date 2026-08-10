@@ -20,8 +20,6 @@
     <p class="text-white mt-4 fw-bold font-heading">LIVE ORDER TRACKER</p>
   </div>
 
-  <canvas id="bubbles-canvas"></canvas>
-
   <!-- Navbar -->
   <nav class="navbar fresh-navbar">
     <div class="container-fluid px-3 px-xl-5 d-flex align-items-center justify-content-between flex-nowrap">
@@ -43,8 +41,8 @@
         <button class="btn btn-sm btn-outline-info rounded-circle p-2" id="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
           <i class="bi bi-moon-stars-fill fs-6" id="theme-toggle-icon"></i>
         </button>
-        <button class="btn btn-sm btn-outline-info rounded-pill px-2 py-1 fw-semibold me-1" id="rtl-toggle-btn" title="Toggle RTL (Right-To-Left)" aria-label="Toggle RTL">
-          <i class="bi bi-translate me-1"></i> <span id="rtl-toggle-text">RTL</span>
+        <button class="btn btn-sm btn-outline-info rounded-circle p-2 me-1" id="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+          <i class="bi bi-arrow-left-right fs-6"></i>
         </button>
         <a href="login.html" class="btn btn-fresh-outline py-2 px-3">Login</a>
         <a href="dashboard.html" class="btn btn-fresh-primary py-2 px-3"><i class="bi bi-speedometer2"></i> Dashboard</a>
@@ -68,7 +66,7 @@
           <i class="bi bi-moon-stars-fill text-info" id="mobile-theme-toggle-icon"></i>
         </button>
         <button class="btn-icon-toggle" id="mobile-rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
-          <i class="bi bi-translate text-info"></i>
+          <i class="bi bi-arrow-left-right text-info"></i>
         </button>
         <button class="btn-drawer-close" id="mobile-drawer-close" aria-label="Close Menu">
           <i class="bi bi-x-lg"></i>
@@ -96,19 +94,25 @@
     </div>
   </div>
 
-  <!-- Header Banner -->
-  <section class="py-5 mt-5 text-center bg-white border-bottom">
-    <div class="container py-4" data-aos="fade-up">
-      <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-3">REAL-TIME RFID TRACKER</span>
-      <h1 class="display-4 fw-bold mb-3">Track Your Garments Live</h1>
-      <p class="lead text-muted max-w-700 mx-auto">Enter your 8-digit Order Reference number below to see instant status update.</p>
+  <!-- Header Banner with Video Stream -->
+  <section class="py-5 mt-5 text-center text-white position-relative overflow-hidden" style="background: #0F172A;">
+    <div class="hero-video-wrap">
+      <video autoplay loop muted playsinline>
+        <source src="videos/4119968-hd_1920_1080_30fps.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
+    <div class="container py-4 position-relative z-2" data-aos="fade-up">
+      <span class="badge bg-primary text-white fw-bold px-3 py-2 rounded-pill mb-3 shadow-sm">REAL-TIME RFID TRACKER</span>
+      <h1 class="display-4 fw-bold mb-3 text-white">Track Your Garments Live</h1>
+      <p class="lead text-white fw-medium max-w-700 mx-auto" style="text-shadow: 0 2px 10px rgba(0,0,0,0.85);">Enter your 8-digit Order Reference number below to see instant status update.</p>
 
       <div class="row justify-content-center mt-4">
-        <div class="col-md-6">
-          <div class="input-group input-group-lg shadow-sm rounded-pill overflow-hidden border">
-            <span class="input-group-text bg-white border-0 ps-4"><i class="bi bi-search text-primary"></i></span>
-            <input type="text" class="form-control border-0" placeholder="e.g. FF-884920" value="FF-884920">
-            <button class="btn btn-fresh-primary px-4">Track</button>
+        <div class="col-lg-6 col-md-8">
+          <div class="input-group input-group-lg shadow-sm rounded-pill overflow-hidden border hero-search-input-group">
+            <span class="input-group-text bg-white border-0 ps-4 d-none d-sm-flex"><i class="bi bi-search text-primary"></i></span>
+            <input type="text" class="form-control border-0 ps-3" placeholder="e.g. FF-884920" value="FF-884920">
+            <button class="btn btn-fresh-primary px-4 fw-bold text-nowrap">Track Order</button>
           </div>
         </div>
       </div>
@@ -120,7 +124,7 @@
     <div class="container">
       
       <!-- Interactive Simulator Dropdown for User Demonstration -->
-      <div class="card p-3 mb-5 border-info bg-info-subtle bg-opacity-25 rounded-4 d-flex flex-row align-items-center justify-content-between flex-wrap gap-3">
+      <div class="card p-3 p-md-4 mb-5 border-info bg-info-subtle bg-opacity-25 rounded-4 d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-center text-md-start">
         <div class="d-flex align-items-center gap-2">
           <i class="bi bi-sliders text-info fs-4"></i>
           <div>
@@ -128,7 +132,7 @@
             <small class="text-muted">Change order status stage to test visual animations</small>
           </div>
         </div>
-        <div class="d-flex align-items-center gap-2">
+        <div class="d-flex align-items-center gap-2 flex-wrap justify-content-center">
           <label for="order-status-simulator" class="fw-bold text-dark text-nowrap">Select Stage:</label>
           <select id="order-status-simulator" class="form-select rounded-pill" style="min-width: 200px;">
             <option value="1">1. Pickup Completed</option>
@@ -146,77 +150,156 @@
         <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4 pb-3 border-bottom">
           <div>
             <span class="badge bg-primary px-3 py-2 rounded-pill mb-2">Order #FF-884920</span>
-            <h3 class="fw-bold mb-0">Executive Suit & Dress Cleaning</h3>
-            <small class="text-muted"><i class="bi bi-geo-alt me-1"></i> Delivery Address: 742 Fifth Avenue, Apt 12B, NY</small>
+            <h3 class="fw-bold mb-1 text-dark order-card-text-fix">Executive Suit & Dress Cleaning</h3>
+            <small class="text-muted order-card-text-fix"><i class="bi bi-geo-alt me-1"></i> Delivery Address: 742 Fifth Avenue, Apt 12B, NY 10019</small>
           </div>
-          <div class="text-end">
+          <div class="text-md-end">
             <span class="badge bg-success-subtle text-success fs-6 px-3 py-2 rounded-pill"><i class="bi bi-clock me-1"></i> ETA: Today 6:15 PM</span>
           </div>
         </div>
 
-        <!-- Animated Progress Steps -->
-        <div class="d-none d-md-flex justify-content-between my-5 position-relative">
+        <!-- Animated Progress Steps (Desktop >= 1200px) -->
+        <div class="d-none d-xl-flex justify-content-between my-5 position-relative">
           <div class="tracker-step completed text-center">
             <div class="tracker-dot"><i class="bi bi-check-lg"></i></div>
-            <strong class="d-block text-dark mt-2">Picked Up</strong>
-            <small class="text-muted">10:30 AM</small>
+            <strong class="d-block text-dark mt-2 text-nowrap">Picked Up</strong>
+            <small class="text-muted text-nowrap">10:30 AM</small>
           </div>
           <div class="tracker-step active text-center">
             <div class="tracker-dot"><i class="bi bi-water"></i></div>
-            <strong class="d-block text-dark mt-2">Washing</strong>
-            <small class="text-info fw-bold">In Progress</small>
+            <strong class="d-block text-dark mt-2 text-nowrap">Washing</strong>
+            <small class="text-info fw-bold text-nowrap">In Progress</small>
           </div>
           <div class="tracker-step text-center">
             <div class="tracker-dot"><i class="bi bi-wind"></i></div>
-            <strong class="d-block text-dark mt-2">Air Drying</strong>
-            <small class="text-muted">Pending</small>
+            <strong class="d-block text-dark mt-2 text-nowrap">Air Drying</strong>
+            <small class="text-muted text-nowrap">Pending</small>
           </div>
           <div class="tracker-step text-center">
             <div class="tracker-dot"><i class="bi bi-fire"></i></div>
-            <strong class="d-block text-dark mt-2">Ironing</strong>
-            <small class="text-muted">Pending</small>
+            <strong class="d-block text-dark mt-2 text-nowrap">Ironing</strong>
+            <small class="text-muted text-nowrap">Pending</small>
           </div>
           <div class="tracker-step text-center">
             <div class="tracker-dot"><i class="bi bi-award"></i></div>
-            <strong class="d-block text-dark mt-2">QC Inspection</strong>
-            <small class="text-muted">Pending</small>
+            <strong class="d-block text-dark mt-2 text-nowrap">QC Inspection</strong>
+            <small class="text-muted text-nowrap">Pending</small>
           </div>
           <div class="tracker-step text-center">
             <div class="tracker-dot"><i class="bi bi-truck"></i></div>
-            <strong class="d-block text-dark mt-2">Out For Delivery</strong>
-            <small class="text-muted">Pending</small>
+            <strong class="d-block text-dark mt-2 text-nowrap">Out For Delivery</strong>
+            <small class="text-muted text-nowrap">Pending</small>
+          </div>
+        </div>
+
+        <!-- Sleek Responsive Step Cards for Mobile & Tablet (< 1200px) -->
+        <div class="d-xl-none my-4 p-3 bg-light rounded-4 border">
+          <div class="row g-3">
+            <div class="col-6 col-md-4">
+              <div class="d-flex align-items-center gap-3 p-3 bg-white rounded-3 border h-100">
+                <div class="bg-success text-white rounded-circle p-2 fs-6 flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                  <i class="bi bi-check-lg"></i>
+                </div>
+                <div class="overflow-hidden">
+                  <strong class="d-block text-dark small text-truncate">Picked Up</strong>
+                  <small class="text-muted extra-small text-truncate d-block">10:30 AM</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="d-flex align-items-center gap-3 p-3 bg-white rounded-3 border border-primary h-100 shadow-sm">
+                <div class="bg-primary text-white rounded-circle p-2 fs-6 flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                  <i class="bi bi-water"></i>
+                </div>
+                <div class="overflow-hidden">
+                  <strong class="d-block text-dark small text-truncate">Washing</strong>
+                  <small class="text-primary fw-bold extra-small text-truncate d-block">In Progress</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="d-flex align-items-center gap-3 p-3 bg-white rounded-3 border opacity-75 h-100">
+                <div class="bg-secondary text-white rounded-circle p-2 fs-6 flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                  <i class="bi bi-wind"></i>
+                </div>
+                <div class="overflow-hidden">
+                  <strong class="d-block text-dark small text-truncate">Air Drying</strong>
+                  <small class="text-muted extra-small text-truncate d-block">Pending</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="d-flex align-items-center gap-3 p-3 bg-white rounded-3 border opacity-75 h-100">
+                <div class="bg-secondary text-white rounded-circle p-2 fs-6 flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                  <i class="bi bi-fire"></i>
+                </div>
+                <div class="overflow-hidden">
+                  <strong class="d-block text-dark small text-truncate">Steam Ironing</strong>
+                  <small class="text-muted extra-small text-truncate d-block">Pending</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="d-flex align-items-center gap-3 p-3 bg-white rounded-3 border opacity-75 h-100">
+                <div class="bg-secondary text-white rounded-circle p-2 fs-6 flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                  <i class="bi bi-award"></i>
+                </div>
+                <div class="overflow-hidden">
+                  <strong class="d-block text-dark small text-truncate">QC Inspection</strong>
+                  <small class="text-muted extra-small text-truncate d-block">Pending</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="d-flex align-items-center gap-3 p-3 bg-white rounded-3 border opacity-75 h-100">
+                <div class="bg-secondary text-white rounded-circle p-2 fs-6 flex-shrink-0 d-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
+                  <i class="bi bi-truck"></i>
+                </div>
+                <div class="overflow-hidden">
+                  <strong class="d-block text-dark small text-truncate">Out For Delivery</strong>
+                  <small class="text-muted extra-small text-truncate d-block">Pending</small>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <!-- Driver Map & Details Row with Local Driver Image -->
-        <div class="row g-4 mt-2">
+        <div class="row g-4 mt-2 align-items-stretch">
           <div class="col-md-6">
-            <div class="card p-3 rounded-4 border">
-              <h6 class="fw-bold mb-3"><i class="bi bi-person-badge text-primary me-2"></i> Assigned Valet Driver</h6>
-              <div class="d-flex align-items-center gap-3">
-                <img src="image/Laundry Staff6.jpg" alt="Valet Driver" class="rounded-circle object-fit-cover" style="width: 56px; height: 56px;">
-                <div>
-                  <h6 class="fw-bold mb-0">David Miller</h6>
-                  <small class="text-muted"><i class="bi bi-star-fill text-warning me-1"></i> 4.98 Rating (1,240 Deliveries)</small>
+            <div class="card p-4 rounded-4 border h-100 d-flex flex-column justify-content-between">
+              <div>
+                <h6 class="fw-bold mb-3 text-dark"><i class="bi bi-person-badge text-primary me-2"></i> Assigned Valet Driver</h6>
+                <div class="d-flex align-items-center gap-3 flex-wrap">
+                  <img src="image/Laundry Staff6.jpg" alt="Valet Driver" class="rounded-circle object-fit-cover flex-shrink-0" style="width: 56px; height: 56px;">
+                  <div class="flex-grow-1">
+                    <h6 class="fw-bold mb-0 text-dark">David Miller</h6>
+                    <small class="text-muted"><i class="bi bi-star-fill text-warning me-1"></i> 4.98 Rating (1,240 Deliveries)</small>
+                  </div>
+                  <a href="tel:+18005553737" class="btn btn-sm btn-outline-primary rounded-circle p-2 flex-shrink-0" title="Call Valet Driver"><i class="bi bi-telephone-fill"></i></a>
                 </div>
-                <a href="tel:+18005553737" class="btn btn-sm btn-outline-primary ms-auto rounded-circle p-2"><i class="bi bi-telephone-fill"></i></a>
+              </div>
+              <div class="mt-3 pt-3 border-top text-muted small">
+                <i class="bi bi-truck text-primary me-1"></i> Vehicle: FreshFlow Eco Electric Van #04
               </div>
             </div>
           </div>
 
           <div class="col-md-6">
-            <div class="card p-3 rounded-4 border bg-dark text-white">
-              <h6 class="fw-bold mb-2 text-info"><i class="bi bi-receipt me-2"></i> Itemized Summary</h6>
-              <div class="d-flex justify-content-between mb-1">
-                <small class="text-white-50">2-Piece Suit (Dry Cleaned)</small>
-                <small>$12.00</small>
+            <div class="card p-4 rounded-4 border bg-dark text-white h-100 d-flex flex-column justify-content-between">
+              <div>
+                <h6 class="fw-bold mb-3 text-info"><i class="bi bi-receipt me-2"></i> Itemized Garment Summary</h6>
+                <div class="d-flex justify-content-between mb-2 pb-1 border-bottom border-secondary">
+                  <small class="text-white-50">2-Piece Executive Suit (Dry Cleaned)</small>
+                  <small class="fw-bold">$12.00</small>
+                </div>
+                <div class="d-flex justify-content-between mb-2 pb-1 border-bottom border-secondary">
+                  <small class="text-white-50">3x Italian Dress Shirts (Steam Pressed)</small>
+                  <small class="fw-bold">$13.50</small>
+                </div>
               </div>
-              <div class="d-flex justify-content-between mb-1">
-                <small class="text-white-50">3x Dress Shirts (Steam Pressed)</small>
-                <small>$13.50</small>
-              </div>
-              <div class="d-flex justify-content-between pt-2 border-top border-secondary fw-bold">
-                <span>Total Paid</span>
+              <div class="d-flex justify-content-between pt-3 border-top border-secondary fw-bold fs-6">
+                <span>Total Amount Paid</span>
                 <span class="text-info">$25.50</span>
               </div>
             </div>
@@ -242,11 +325,11 @@
           <p class="text-white-50 mb-4">
             Luxury eco-friendly laundry & dry cleaning service powered by state-of-the-art ozone technology and white-glove valet pickup.
           </p>
-          <div class="d-flex gap-3">
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-linkedin"></i></a>
+          <div class="footer-social-icons">
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
 

@@ -20,8 +20,6 @@
     <p class="text-white mt-4 fw-bold font-heading">PRICING CALCULATOR</p>
   </div>
 
-  <canvas id="bubbles-canvas"></canvas>
-
   <!-- Navbar -->
   <nav class="navbar fresh-navbar">
     <div class="container-fluid px-3 px-xl-5 d-flex align-items-center justify-content-between flex-nowrap">
@@ -43,8 +41,8 @@
         <button class="btn btn-sm btn-outline-info rounded-circle p-2" id="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
           <i class="bi bi-moon-stars-fill fs-6" id="theme-toggle-icon"></i>
         </button>
-        <button class="btn btn-sm btn-outline-info rounded-pill px-2 py-1 fw-semibold me-1" id="rtl-toggle-btn" title="Toggle RTL (Right-To-Left)" aria-label="Toggle RTL">
-          <i class="bi bi-translate me-1"></i> <span id="rtl-toggle-text">RTL</span>
+        <button class="btn btn-sm btn-outline-info rounded-circle p-2 me-1" id="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+          <i class="bi bi-arrow-left-right fs-6"></i>
         </button>
         <a href="login.html" class="btn btn-fresh-outline py-2 px-3">Login</a>
         <a href="dashboard.html" class="btn btn-fresh-primary py-2 px-3"><i class="bi bi-speedometer2"></i> Dashboard</a>
@@ -68,7 +66,7 @@
           <i class="bi bi-moon-stars-fill text-info" id="mobile-theme-toggle-icon"></i>
         </button>
         <button class="btn-icon-toggle" id="mobile-rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
-          <i class="bi bi-translate text-info"></i>
+          <i class="bi bi-arrow-left-right text-info"></i>
         </button>
         <button class="btn-drawer-close" id="mobile-drawer-close" aria-label="Close Menu">
           <i class="bi bi-x-lg"></i>
@@ -97,16 +95,17 @@
   </div>
 
   <!-- Header Banner with Video Stream -->
-  <section class="py-5 mt-5 text-center bg-white border-bottom position-relative overflow-hidden">
-    <div class="position-absolute top-0 start-0 w-100 h-100 opacity-15 z-0">
-      <video autoplay loop muted playsinline class="w-100 h-100 object-fit-cover">
+  <section class="py-5 mt-5 text-center text-white position-relative overflow-hidden" style="background: #0F172A;">
+    <div class="hero-video-wrap">
+      <video autoplay loop muted playsinline>
         <source src="videos/1362720-hd_1920_1080_30fps.mp4" type="video/mp4">
       </video>
+      <div class="hero-video-overlay"></div>
     </div>
-    <div class="container py-4 position-relative z-1" data-aos="fade-up">
-      <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-3">TRANSPARENT & SIMPLE</span>
-      <h1 class="display-4 fw-bold mb-3">No Surprise Fees. Ever.</h1>
-      <p class="lead text-muted max-w-700 mx-auto">Choose a pay-per-item plan or save big with our monthly valet membership subscriptions.</p>
+    <div class="container py-4 position-relative z-2" data-aos="fade-up">
+      <span class="badge bg-primary text-white fw-bold px-3 py-2 rounded-pill mb-3 shadow-sm">TRANSPARENT & SIMPLE</span>
+      <h1 class="display-4 fw-bold mb-3 text-white" style="text-shadow: 0 4px 16px rgba(0,0,0,0.85);">No Surprise Fees. Ever.</h1>
+      <p class="lead text-white fw-medium max-w-700 mx-auto" style="text-shadow: 0 2px 10px rgba(0,0,0,0.85);">Choose a pay-per-item plan or save big with our monthly valet membership subscriptions.</p>
     </div>
   </section>
 
@@ -116,12 +115,12 @@
       <div class="row justify-content-center mb-5">
         <div class="col-lg-10" data-aos="fade-up">
           <div class="glass-card p-4 p-md-5 rounded-4 shadow-lg">
-            <h3 class="fw-bold mb-4 text-center"><i class="bi bi-calculator text-primary me-2"></i> Live Order Price Estimator</h3>
+            <h3 class="fw-bold mb-4 text-center text-dark"><i class="bi bi-calculator text-primary me-2"></i> Live Order Price Estimator</h3>
             
-            <div class="row g-4">
+            <div class="row g-4 align-items-stretch">
               <!-- Item 1 -->
               <div class="col-md-6">
-                <div class="d-flex align-items-center justify-content-between p-3 bg-white rounded-3 border">
+                <div class="estimator-item-card d-flex align-items-center justify-content-between p-3 bg-white rounded-3 border h-100">
                   <div>
                     <strong class="d-block text-dark">Wash & Fold ($2.45/lb)</strong>
                     <small class="text-muted">Everyday casual clothes</small>
@@ -132,7 +131,7 @@
 
               <!-- Item 2 -->
               <div class="col-md-6">
-                <div class="d-flex align-items-center justify-content-between p-3 bg-white rounded-3 border">
+                <div class="estimator-item-card d-flex align-items-center justify-content-between p-3 bg-white rounded-3 border h-100">
                   <div>
                     <strong class="d-block text-dark">2-Piece Suit ($12.00)</strong>
                     <small class="text-muted">Dry cleaned & hand pressed</small>
@@ -143,7 +142,7 @@
 
               <!-- Item 3 -->
               <div class="col-md-6">
-                <div class="d-flex align-items-center justify-content-between p-3 bg-white rounded-3 border">
+                <div class="estimator-item-card d-flex align-items-center justify-content-between p-3 bg-white rounded-3 border h-100">
                   <div>
                     <strong class="d-block text-dark">Dress Shirt ($4.50)</strong>
                     <small class="text-muted">Laundered & on hanger</small>
@@ -154,7 +153,7 @@
 
               <!-- Item 4 -->
               <div class="col-md-6">
-                <div class="d-flex align-items-center justify-content-between p-3 bg-white rounded-3 border">
+                <div class="estimator-item-card d-flex align-items-center justify-content-between p-3 bg-white rounded-3 border h-100">
                   <div>
                     <strong class="d-block text-dark">Silk Evening Dress ($14.00)</strong>
                     <small class="text-muted">Eco-solvent hydro treatment</small>
@@ -175,54 +174,61 @@
         </div>
       </div>
 
-      <!-- Subscription Tiers -->
-      <div class="row g-4">
+      <!-- Subscription Tiers - Equal Height & Aligned Buttons -->
+      <div class="row g-4 align-items-stretch">
         <!-- Tier 1 -->
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="card p-4 rounded-4 border-0 shadow-sm glass-card h-100">
-            <span class="badge bg-secondary-subtle text-dark fw-bold px-3 py-2 rounded-pill width-fit mb-3">LIGHT CARE</span>
-            <h3 class="fw-bold mb-1">Pay As You Go</h3>
-            <p class="text-muted small">Ideal for occasional dry cleaning needs.</p>
-            <h2 class="fw-bold my-3">$0 <small class="fs-6 text-muted">/ month</small></h2>
-            <ul class="list-unstyled text-muted small mb-4">
-              <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Standard 24h pickup & delivery</li>
-              <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Real-time RFID tracking</li>
-              <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Pay per item / lb</li>
-            </ul>
-            <a href="dashboard.html" class="btn btn-outline-primary w-100 mt-auto rounded-pill py-2">Get Started</a>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card p-4 rounded-4 border-0 shadow-sm glass-card h-100 d-flex flex-column justify-content-between">
+            <div>
+              <span class="badge bg-secondary text-white fw-bold px-3 py-2 rounded-pill mb-3 d-inline-block">LIGHT CARE</span>
+              <h3 class="fw-bold mb-1 text-dark">Pay As You Go</h3>
+              <p class="text-muted small">Ideal for occasional dry cleaning needs.</p>
+              <h2 class="fw-bold my-3 text-dark">$0 <small class="fs-6 text-muted">/ month</small></h2>
+              <ul class="list-unstyled text-muted small mb-4">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Standard 24h pickup & delivery</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Real-time RFID tracking</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Pay per item / lb</li>
+              </ul>
+            </div>
+            <a href="dashboard.html" class="btn btn-outline-primary w-100 mt-auto rounded-pill py-3 fw-bold">Get Started</a>
           </div>
         </div>
 
         <!-- Tier 2 (Popular) -->
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="card p-4 rounded-4 border-primary border-2 shadow-lg glass-card h-100 position-relative overflow-hidden">
-            <span class="badge bg-primary text-white fw-bold px-3 py-2 rounded-pill width-fit mb-3">MOST POPULAR</span>
-            <h3 class="fw-bold mb-1">Fresh VIP Monthly</h3>
-            <p class="text-muted small">Perfect for busy professionals and families.</p>
-            <h2 class="fw-bold my-3 text-primary">$79 <small class="fs-6 text-muted">/ month</small></h2>
-            <ul class="list-unstyled text-dark font-medium small mb-4">
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> 40 lbs of Wash & Fold included</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> 5 Dry Cleaned items included</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Priority 12h Express delivery</li>
-              <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> 20% Discount on additional items</li>
-            </ul>
-            <a href="dashboard.html" class="btn btn-fresh-primary w-100 mt-auto rounded-pill py-3">Subscribe VIP Plan</a>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card p-4 rounded-4 border-primary border-2 shadow-lg glass-card h-100 position-relative d-flex flex-column justify-content-between">
+            <span class="popular-tag">MOST POPULAR</span>
+            <div>
+              <span class="badge bg-primary text-white fw-bold px-3 py-2 rounded-pill mb-3 d-inline-block mt-2">FRESH VIP</span>
+              <h3 class="fw-bold mb-1 text-dark">Fresh VIP Monthly</h3>
+              <p class="text-muted small">Perfect for busy professionals and families.</p>
+              <h2 class="fw-bold my-3 text-primary">$79 <small class="fs-6 text-muted">/ month</small></h2>
+              <ul class="list-unstyled text-dark font-medium small mb-4">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> 40 lbs of Wash & Fold included</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> 5 Dry Cleaned items included</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Priority 12h Express delivery</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> 20% Discount on additional items</li>
+              </ul>
+            </div>
+            <a href="dashboard.html" class="btn btn-fresh-primary w-100 mt-auto rounded-pill py-3 fw-bold">Subscribe VIP Plan</a>
           </div>
         </div>
 
         <!-- Tier 3 -->
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-          <div class="card p-4 rounded-4 border-0 shadow-sm glass-card h-100">
-            <span class="badge bg-dark text-white fw-bold px-3 py-2 rounded-pill width-fit mb-3">EXECUTIVE</span>
-            <h3 class="fw-bold mb-1">Couture Unlimited</h3>
-            <p class="text-muted small">For luxury wardrobes and high-volume households.</p>
-            <h2 class="fw-bold my-3">$169 <small class="fs-6 text-muted">/ month</small></h2>
-            <ul class="list-unstyled text-muted small mb-4">
-              <li class="mb-2"><i class="bi bi-check text-success me-2"></i> 100 lbs of Wash & Fold included</li>
-              <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Unlimited Steam Pressing</li>
-              <li class="mb-2"><i class="bi bi-check text-success me-2"></i> Dedicated Valet Concierge</li>
-            </ul>
-            <a href="dashboard.html" class="btn btn-outline-dark w-100 mt-auto rounded-pill py-2">Select Executive Plan</a>
+        <div class="col-lg-4 col-md-6 mx-auto" data-aos="fade-up" data-aos-delay="300">
+          <div class="card p-4 rounded-4 border-0 shadow-sm glass-card h-100 d-flex flex-column justify-content-between">
+            <div>
+              <span class="badge bg-dark text-white fw-bold px-3 py-2 rounded-pill mb-3 d-inline-block">EXECUTIVE</span>
+              <h3 class="fw-bold mb-1 text-dark">Couture Unlimited</h3>
+              <p class="text-muted small">For luxury wardrobes and high-volume households.</p>
+              <h2 class="fw-bold my-3 text-dark">$169 <small class="fs-6 text-muted">/ month</small></h2>
+              <ul class="list-unstyled text-muted small mb-4">
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> 100 lbs of Wash & Fold included</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Unlimited Steam Pressing</li>
+                <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i> Dedicated Valet Concierge</li>
+              </ul>
+            </div>
+            <a href="dashboard.html" class="btn btn-fresh-primary w-100 mt-auto rounded-pill py-3 fw-bold">Select Executive Plan</a>
           </div>
         </div>
       </div>
@@ -244,11 +250,11 @@
           <p class="text-white-50 mb-4">
             Luxury eco-friendly laundry & dry cleaning service powered by state-of-the-art ozone technology and white-glove valet pickup.
           </p>
-          <div class="d-flex gap-3">
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-linkedin"></i></a>
+          <div class="footer-social-icons">
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
 

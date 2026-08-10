@@ -21,9 +21,6 @@
     <small class="text-info">Loading split-layout experience...</small>
   </div>
 
-  <!-- Background Canvas -->
-  <canvas id="bubbles-canvas"></canvas>
-
   <!-- Navbar -->
   <nav class="navbar fresh-navbar">
     <div class="container-fluid px-3 px-xl-5 d-flex align-items-center justify-content-between flex-nowrap">
@@ -45,8 +42,8 @@
         <button class="btn btn-sm btn-outline-info rounded-circle p-2" id="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
           <i class="bi bi-moon-stars-fill fs-6" id="theme-toggle-icon"></i>
         </button>
-        <button class="btn btn-sm btn-outline-info rounded-pill px-2 py-1 fw-semibold me-1" id="rtl-toggle-btn" title="Toggle RTL (Right-To-Left)" aria-label="Toggle RTL">
-          <i class="bi bi-translate me-1"></i> <span id="rtl-toggle-text">RTL</span>
+        <button class="btn btn-sm btn-outline-info rounded-circle p-2 me-1" id="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+          <i class="bi bi-arrow-left-right fs-6"></i>
         </button>
         <a href="login.html" class="btn btn-fresh-outline py-2 px-3">Login</a>
         <a href="dashboard.html" class="btn btn-fresh-primary py-2 px-3"><i class="bi bi-speedometer2"></i> Dashboard</a>
@@ -70,7 +67,7 @@
           <i class="bi bi-moon-stars-fill text-info" id="mobile-theme-toggle-icon"></i>
         </button>
         <button class="btn-icon-toggle" id="mobile-rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
-          <i class="bi bi-translate text-info"></i>
+          <i class="bi bi-arrow-left-right text-info"></i>
         </button>
         <button class="btn-drawer-close" id="mobile-drawer-close" aria-label="Close Menu">
           <i class="bi bi-x-lg"></i>
@@ -100,16 +97,17 @@
 
   <!-- Hero Split Layout with Video Stream -->
   <section class="hero-section position-relative overflow-hidden">
-    <div class="position-absolute top-0 start-0 w-100 h-100 opacity-20 z-0">
-      <video autoplay loop muted playsinline class="w-100 h-100 object-fit-cover">
+    <div class="hero-video-wrap">
+      <video autoplay loop muted playsinline>
         <source src="videos/8756891-uhd_4096_2160_25fps.mp4" type="video/mp4">
       </video>
+      <div class="hero-video-overlay"></div>
     </div>
 
-    <div class="container position-relative z-1">
+    <div class="container position-relative z-2">
       <div class="row align-items-center g-5">
         <div class="col-lg-6" data-aos="fade-right">
-          <span class="badge bg-success-subtle text-success fw-bold px-3 py-2 rounded-pill mb-3">
+          <span class="badge bg-success text-white fw-bold px-3 py-2 rounded-pill mb-3 shadow-sm">
             <i class="bi bi-lightning-charge-fill me-1"></i> SMART LAUNDRY AUTOMATION
           </span>
           <h1 class="hero-title">On-Demand Laundry Delivered To Your Doorstep.</h1>
@@ -119,7 +117,7 @@
 
           <!-- Quick Pickup Form Card -->
           <div class="glass-card p-4 rounded-4 shadow-lg mb-4 text-start">
-            <h5 class="fw-bold mb-3"><i class="bi bi-geo-alt-fill text-primary me-2"></i> Schedule Express Pickup</h5>
+            <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-geo-alt-fill text-primary me-2"></i> Schedule Express Pickup</h5>
             <form id="quick-pickup-form" class="row g-2">
               <div class="col-md-6">
                 <input type="text" class="form-control rounded-pill py-2 px-3" placeholder="Pickup Address / Zip Code" required>
@@ -131,7 +129,7 @@
                   <option>Steam Pressing ($3.00/item)</option>
                 </select>
               </div>
-              <div class="col-12 mt-3">
+              <div class="col-12 mt-3 text-center">
                 <button type="submit" class="btn btn-fresh-primary w-100 py-3"><i class="bi bi-calendar-plus me-2"></i> Request Valet Pickup Now</button>
               </div>
             </form>
@@ -143,11 +141,11 @@
             <img src="image/Laundry Pickup & Delivery 5.jpg" alt="Luxury Pickup Valet" class="img-fluid rounded-4 shadow-lg border border-white w-100 object-fit-cover" style="height: 480px;">
             
             <div class="glass-card position-absolute bottom-0 start-0 m-4 p-3 rounded-4 shadow d-flex align-items-center gap-3">
-              <div class="bg-success text-white p-3 rounded-circle">
+              <div class="bg-success text-white p-3 rounded-circle flex-shrink-0">
                 <i class="bi bi-patch-check-fill fs-4"></i>
               </div>
               <div>
-                <h6 class="fw-bold mb-0">100% Satisfaction Guarantee</h6>
+                <h6 class="fw-bold mb-0 text-dark">100% Satisfaction Guarantee</h6>
                 <small class="text-muted">Re-wash free of charge if not delighted</small>
               </div>
             </div>
@@ -157,8 +155,77 @@
     </div>
   </section>
 
+  <!-- NEW SECTION 1: PLATFORM CAPABILITIES -->
+  <section class="py-5 bg-white border-bottom">
+    <div class="container py-4">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-2">POWERFUL TECH</span>
+        <h2 class="section-title display-5 fw-bold">Next-Gen SaaS Laundry Capabilities</h2>
+        <p class="section-subtitle text-muted">Advanced digital features designed for ultimate garment protection and complete peace of mind.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Feature 1 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="bg-primary-subtle text-primary p-3 rounded-4 width-fit mb-3 fs-3">
+                <i class="bi bi-qr-code-scan"></i>
+              </div>
+              <h5 class="fw-bold mb-2">Smart RFID Tagging</h5>
+              <p class="text-muted small">Every item is scanned with micro RFID chips to prevent mix-ups and provide step-by-step progress updates.</p>
+            </div>
+            <a href="tracking.html" class="fw-bold text-primary small mt-3">Learn More <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="bg-success-subtle text-success p-3 rounded-4 width-fit mb-3 fs-3">
+                <i class="bi bi-truck-front-fill"></i>
+              </div>
+              <h5 class="fw-bold mb-2">GPS Valet Dispatch</h5>
+              <p class="text-muted small">Real-time driver location map with live SMS alerts when valet is 5 minutes from your door.</p>
+            </div>
+            <a href="tracking.html" class="fw-bold text-success small mt-3">Track Valet <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="glass-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="bg-info-subtle text-info p-3 rounded-4 width-fit mb-3 fs-3">
+                <i class="bi bi-receipt-cutoff"></i>
+              </div>
+              <h5 class="fw-bold mb-2">Digital Invoicing</h5>
+              <p class="text-muted small">Itemized digital bills with instant PDF downloads, stored card billing, and automated tax reports.</p>
+            </div>
+            <a href="dashboard.html" class="fw-bold text-info small mt-3">View Portal <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="glass-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
+            <div>
+              <div class="bg-warning-subtle text-warning p-3 rounded-4 width-fit mb-3 fs-3">
+                <i class="bi bi-sliders"></i>
+              </div>
+              <h5 class="fw-bold mb-2">Custom Care Rules</h5>
+              <p class="text-muted small">Set custom preferences for starch level, eco-fragrance, hang vs fold, and hypoallergenic wash.</p>
+            </div>
+            <a href="dashboard.html" class="fw-bold text-warning small mt-3">Set Preferences <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Interactive Comparison Section -->
-  <section class="py-5 bg-white">
+  <section class="py-5" style="background: var(--ff-bg);">
     <div class="container py-4">
       <div class="text-center mb-5" data-aos="fade-up">
         <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-2">WHY CHOOSE FRESHFLOW</span>
@@ -190,6 +257,59 @@
               <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-success"></i> Zero effort – schedule in 30 seconds via dashboard</li>
               <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-success"></i> Real-time GPS valet tracking & digital receipts</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW SECTION 2: WORKFLOW / HOW IT WORKS -->
+  <section class="py-5 bg-white border-top border-bottom">
+    <div class="container py-4">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <span class="badge bg-success-subtle text-success fw-bold px-3 py-2 rounded-pill mb-2">EFFORTLESS PROCESS</span>
+        <h2 class="section-title display-5 fw-bold">How FreshFlow Works In 4 Steps</h2>
+        <p class="section-subtitle text-muted">A streamlined 24-hour valet workflow designed for maximum convenience.</p>
+      </div>
+
+      <div class="row g-4 text-center">
+        <!-- Step 1 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="p-4 glass-card rounded-4 h-100 position-relative">
+            <div class="position-absolute top-0 start-50 translate-middle badge bg-primary text-white rounded-circle fs-6 p-2 width-fit" style="width: 36px; height: 36px;">1</div>
+            <div class="my-3 text-primary fs-1"><i class="bi bi-phone-vibrate"></i></div>
+            <h5 class="fw-bold mb-2">1. Book In 30 Seconds</h5>
+            <p class="text-muted small">Select your service, pickup window, and garment notes via our web app or dashboard.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="p-4 glass-card rounded-4 h-100 position-relative">
+            <div class="position-absolute top-0 start-50 translate-middle badge bg-primary text-white rounded-circle fs-6 p-2 width-fit" style="width: 36px; height: 36px;">2</div>
+            <div class="my-3 text-primary fs-1"><i class="bi bi-bag-check-fill"></i></div>
+            <h5 class="fw-bold mb-2">2. Doorstep Valet Pickup</h5>
+            <p class="text-muted small">Our driver arrives with a reusable personalized garment bag right at your specified time.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="p-4 glass-card rounded-4 h-100 position-relative">
+            <div class="position-absolute top-0 start-50 translate-middle badge bg-primary text-white rounded-circle fs-6 p-2 width-fit" style="width: 36px; height: 36px;">3</div>
+            <div class="my-3 text-primary fs-1"><i class="bi bi-droplet-half"></i></div>
+            <h5 class="fw-bold mb-2">3. Eco Hydro Care</h5>
+            <p class="text-muted small">Garments are treated with non-toxic ozone washing and precision steam ironing by master craftsmen.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="p-4 glass-card rounded-4 h-100 position-relative">
+            <div class="position-absolute top-0 start-50 translate-middle badge bg-primary text-white rounded-circle fs-6 p-2 width-fit" style="width: 36px; height: 36px;">4</div>
+            <div class="my-3 text-primary fs-1"><i class="bi bi-box-seam-fill"></i></div>
+            <h5 class="fw-bold mb-2">4. Express 24h Delivery</h5>
+            <p class="text-muted small">Clothes are delivered back to your doorstep, perfectly hung or folded, ready for your wardrobe.</p>
           </div>
         </div>
       </div>
@@ -232,6 +352,47 @@
     </div>
   </section>
 
+  <!-- NEW SECTION 3: RESULTS / TRUST / CTA -->
+  <section class="py-5 bg-dark text-white position-relative overflow-hidden">
+    <div class="container py-5 text-center" data-aos="fade-up">
+      <span class="badge bg-info text-dark fw-bold px-3 py-2 rounded-pill mb-3">VERIFIED RESULTS</span>
+      <h2 class="display-5 fw-bold text-white mb-3">Trusted By Thousands Of Luxury Wardrobes</h2>
+      <p class="lead text-white-50 max-w-700 mx-auto mb-5">Our commitment to garment excellence and white-glove valet service speaks through our metrics.</p>
+
+      <div class="row g-4 mb-5">
+        <div class="col-md-3 col-6">
+          <div class="p-4 glass-card-dark rounded-4">
+            <h2 class="display-5 fw-bold text-info font-heading mb-1">99.8%</h2>
+            <small class="text-white-50">Stain Removal Rate</small>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="p-4 glass-card-dark rounded-4">
+            <h2 class="display-5 fw-bold text-success font-heading mb-1">24 Hours</h2>
+            <small class="text-white-50">Standard Delivery Time</small>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="p-4 glass-card-dark rounded-4">
+            <h2 class="display-5 fw-bold text-warning font-heading mb-1">50,000+</h2>
+            <small class="text-white-50">Garments Cared For</small>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="p-4 glass-card-dark rounded-4">
+            <h2 class="display-5 fw-bold text-primary font-heading mb-1">4.98 ★</h2>
+            <small class="text-white-50">Average Rating</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-btn-group d-flex justify-content-center gap-3 flex-column flex-sm-row">
+        <a href="dashboard.html" class="btn btn-fresh-primary py-3 px-5 fs-6"><i class="bi bi-calendar-check me-2"></i> Book Your First Pickup</a>
+        <a href="pricing.html" class="btn btn-fresh-outline text-white border-white py-3 px-5 fs-6"><i class="bi bi-calculator me-2"></i> View Pricing & Calculator</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Luxury Water Wave Footer -->
   <footer class="water-footer">
     <svg class="wave-svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
@@ -247,11 +408,11 @@
           <p class="text-white-50 mb-4">
             Luxury eco-friendly laundry & dry cleaning service powered by state-of-the-art ozone technology and white-glove valet pickup.
           </p>
-          <div class="d-flex gap-3">
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-linkedin"></i></a>
+          <div class="footer-social-icons">
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
 

@@ -30,9 +30,6 @@
     <small class="text-info">Spinning up fresh cleanliness...</small>
   </div>
 
-  <!-- Background Bubbles Canvas -->
-  <canvas id="bubbles-canvas"></canvas>
-
   <!-- Navbar -->
   <nav class="navbar fresh-navbar">
     <div class="container-fluid px-3 px-xl-5 d-flex align-items-center justify-content-between flex-nowrap">
@@ -57,9 +54,9 @@
           title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
           <i class="bi bi-moon-stars-fill fs-6" id="theme-toggle-icon"></i>
         </button>
-        <button class="btn btn-sm btn-outline-info rounded-pill px-2 py-1 fw-semibold me-1" id="rtl-toggle-btn"
-          title="Toggle RTL (Right-To-Left)" aria-label="Toggle RTL">
-          <i class="bi bi-translate me-1"></i> <span id="rtl-toggle-text">RTL</span>
+        <button class="btn btn-sm btn-outline-info rounded-circle p-2 me-1" id="rtl-toggle-btn"
+          title="Toggle RTL" aria-label="Toggle RTL">
+          <i class="bi bi-arrow-left-right fs-6"></i>
         </button>
         <a href="login.html" class="btn btn-fresh-outline py-2 px-3">Login</a>
         <a href="dashboard.html" class="btn btn-fresh-primary py-2 px-3"><i class="bi bi-speedometer2"></i> Dashboard</a>
@@ -84,7 +81,7 @@
           <i class="bi bi-moon-stars-fill text-info" id="mobile-theme-toggle-icon"></i>
         </button>
         <button class="btn-icon-toggle" id="mobile-rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
-          <i class="bi bi-translate text-info"></i>
+          <i class="bi bi-arrow-left-right text-info"></i>
         </button>
         <button class="btn-drawer-close" id="mobile-drawer-close" aria-label="Close Menu">
           <i class="bi bi-x-lg"></i>
@@ -116,17 +113,18 @@
 
   <!-- Hero Section with Background Video & 3D Canvas -->
   <section class="hero-section position-relative overflow-hidden">
-    <!-- Local Background Video -->
-    <div class="position-absolute top-0 start-0 w-100 h-100 opacity-25 z-0">
-      <video autoplay loop muted playsinline class="w-100 h-100 object-fit-cover">
+    <!-- Local Background Video Wrap & Gradient Overlay -->
+    <div class="hero-video-wrap">
+      <video autoplay loop muted playsinline>
         <source src="videos/4119968-hd_1920_1080_30fps.mp4" type="video/mp4">
       </video>
+      <div class="hero-video-overlay"></div>
     </div>
 
-    <div class="container position-relative z-1">
+    <div class="container position-relative z-2">
       <div class="row align-items-center g-5">
         <div class="col-lg-6" data-aos="fade-right">
-          <span class="badge bg-info-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-3 fs-6">
+          <span class="badge bg-info text-dark fw-bold px-3 py-2 rounded-pill mb-3 fs-6 shadow-sm">
             <i class="bi bi-sparkles me-1"></i> LUXURY LAUNDRY & DRY CLEANING
           </span>
           <h1 class="hero-title">Pristine Care For Your Finest Garments.</h1>
@@ -137,25 +135,25 @@
           <div class="hero-btn-group d-flex flex-column flex-sm-row gap-3 mb-4">
             <a href="dashboard.html" class="btn btn-fresh-primary fs-6"><i class="bi bi-bag-check me-2"></i> Book Pickup
               Now</a>
-            <a href="tracking.html" class="btn btn-fresh-outline fs-6"><i class="bi bi-geo-alt me-2"></i> Track Your
+            <a href="tracking.html" class="btn btn-fresh-outline text-white border-white fs-6"><i class="bi bi-geo-alt me-2"></i> Track Your
               Order</a>
           </div>
 
           <div
-            class="d-flex align-items-center justify-content-center justify-content-lg-start gap-4 pt-3 border-top border-secondary">
+            class="d-flex align-items-center justify-content-center justify-content-lg-start gap-4 pt-3 border-top border-secondary text-white">
             <div>
-              <h4 class="fw-bold mb-0 text-primary font-heading">99.8%</h4>
-              <small class="text-muted">Stain Removal</small>
+              <h4 class="fw-bold mb-0 text-info font-heading">99.8%</h4>
+              <small class="text-white-50">Stain Removal</small>
             </div>
-            <div class="border-end h-100 py-3"></div>
+            <div class="border-end h-100 py-3 border-secondary"></div>
             <div>
-              <h4 class="fw-bold mb-0 text-primary font-heading">24 Hours</h4>
-              <small class="text-muted">Express Delivery</small>
+              <h4 class="fw-bold mb-0 text-info font-heading">24 Hours</h4>
+              <small class="text-white-50">Express Delivery</small>
             </div>
-            <div class="border-end h-100 py-3"></div>
+            <div class="border-end h-100 py-3 border-secondary"></div>
             <div>
-              <h4 class="fw-bold mb-0 text-primary font-heading">50k+</h4>
-              <small class="text-muted">Garments Cared</small>
+              <h4 class="fw-bold mb-0 text-info font-heading">50k+</h4>
+              <small class="text-white-50">Garments Cared</small>
             </div>
           </div>
         </div>
@@ -186,13 +184,13 @@
     </div>
   </section>
 
-  <!-- Feature Highlights Grid -->
+  <!-- Feature Highlights Grid - Equalized Height -->
   <section class="py-5 bg-white border-bottom">
     <div class="container">
       <div class="row g-4">
         <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="d-flex align-items-center gap-3 p-3 glass-card">
-            <div class="bg-primary-subtle text-primary p-3 rounded-circle fs-4">
+          <div class="feature-highlight-card glass-card h-100 p-3">
+            <div class="bg-primary-subtle text-primary p-3 rounded-circle fs-4 flex-shrink-0">
               <i class="bi bi-clock-history"></i>
             </div>
             <div>
@@ -202,8 +200,8 @@
           </div>
         </div>
         <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="d-flex align-items-center gap-3 p-3 glass-card">
-            <div class="bg-success-subtle text-success p-3 rounded-circle fs-4">
+          <div class="feature-highlight-card glass-card h-100 p-3">
+            <div class="bg-success-subtle text-success p-3 rounded-circle fs-4 flex-shrink-0">
               <i class="bi bi-tree"></i>
             </div>
             <div>
@@ -213,8 +211,8 @@
           </div>
         </div>
         <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="d-flex align-items-center gap-3 p-3 glass-card">
-            <div class="bg-info-subtle text-info p-3 rounded-circle fs-4">
+          <div class="feature-highlight-card glass-card h-100 p-3">
+            <div class="bg-info-subtle text-info p-3 rounded-circle fs-4 flex-shrink-0">
               <i class="bi bi-crosshair"></i>
             </div>
             <div>
@@ -224,8 +222,8 @@
           </div>
         </div>
         <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="d-flex align-items-center gap-3 p-3 glass-card">
-            <div class="bg-warning-subtle text-warning p-3 rounded-circle fs-4">
+          <div class="feature-highlight-card glass-card h-100 p-3">
+            <div class="bg-warning-subtle text-warning p-3 rounded-circle fs-4 flex-shrink-0">
               <i class="bi bi-award"></i>
             </div>
             <div>
@@ -251,14 +249,18 @@
       <div class="row g-4">
         <!-- Service Card 1 -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-card p-0 overflow-hidden">
-            <img src="image/Washing Machines.jpg" alt="Wash & Fold" class="w-100 object-fit-cover"
-              style="height: 200px;">
-            <div class="p-4 d-flex flex-column flex-grow-1">
-              <h4 class="fw-bold mb-2">Wash & Fold</h4>
-              <p class="text-muted mb-4">Everyday clothes washed with hypoallergenic detergent, perfectly folded and
-                crisp scent preserved.</p>
-              <a href="services.html" class="fw-bold text-primary mt-auto">Learn More <i
+          <div class="service-card p-0 overflow-hidden h-100 d-flex flex-column justify-content-between">
+            <div>
+              <img src="image/Washing Machines.jpg" alt="Wash & Fold" class="w-100 object-fit-cover"
+                style="height: 200px;">
+              <div class="p-4">
+                <h4 class="fw-bold mb-2">Wash & Fold</h4>
+                <p class="text-muted mb-4">Everyday clothes washed with hypoallergenic detergent, perfectly folded and
+                  crisp scent preserved.</p>
+              </div>
+            </div>
+            <div class="px-4 pb-4 mt-auto">
+              <a href="services.html" class="fw-bold text-primary">Learn More <i
                   class="bi bi-arrow-right"></i></a>
             </div>
           </div>
@@ -266,13 +268,17 @@
 
         <!-- Service Card 2 -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <div class="service-card p-0 overflow-hidden">
-            <img src="image/Dry Cleaning.jpg" alt="Dry Cleaning" class="w-100 object-fit-cover" style="height: 200px;">
-            <div class="p-4 d-flex flex-column flex-grow-1">
-              <h4 class="fw-bold mb-2">Delicate Dry Cleaning</h4>
-              <p class="text-muted mb-4">Solvent-free hydro-carbon technology specially engineered for suits, silk
-                dresses, and couture.</p>
-              <a href="services.html" class="fw-bold text-primary mt-auto">Learn More <i
+          <div class="service-card p-0 overflow-hidden h-100 d-flex flex-column justify-content-between">
+            <div>
+              <img src="image/Dry Cleaning.jpg" alt="Dry Cleaning" class="w-100 object-fit-cover" style="height: 200px;">
+              <div class="p-4">
+                <h4 class="fw-bold mb-2">Delicate Dry Cleaning</h4>
+                <p class="text-muted mb-4">Solvent-free hydro-carbon technology specially engineered for suits, silk
+                  dresses, and couture.</p>
+              </div>
+            </div>
+            <div class="px-4 pb-4 mt-auto">
+              <a href="services.html" class="fw-bold text-primary">Learn More <i
                   class="bi bi-arrow-right"></i></a>
             </div>
           </div>
@@ -280,14 +286,18 @@
 
         <!-- Service Card 3 -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <div class="service-card p-0 overflow-hidden">
-            <img src="image/Steam Ironing.jpg" alt="Steam Ironing" class="w-100 object-fit-cover"
-              style="height: 200px;">
-            <div class="p-4 d-flex flex-column flex-grow-1">
-              <h4 class="fw-bold mb-2">Steam Ironing & Pressing</h4>
-              <p class="text-muted mb-4">Precision temperature controlled vertical steam pressing to remove every crease
-                while preserving fiber integrity.</p>
-              <a href="services.html" class="fw-bold text-primary mt-auto">Learn More <i
+          <div class="service-card p-0 overflow-hidden h-100 d-flex flex-column justify-content-between">
+            <div>
+              <img src="image/Steam Ironing.jpg" alt="Steam Ironing" class="w-100 object-fit-cover"
+                style="height: 200px;">
+              <div class="p-4">
+                <h4 class="fw-bold mb-2">Steam Ironing & Pressing</h4>
+                <p class="text-muted mb-4">Precision temperature controlled vertical steam pressing to remove every crease
+                  while preserving fiber integrity.</p>
+              </div>
+            </div>
+            <div class="px-4 pb-4 mt-auto">
+              <a href="services.html" class="fw-bold text-primary">Learn More <i
                   class="bi bi-arrow-right"></i></a>
             </div>
           </div>
@@ -295,14 +305,18 @@
 
         <!-- Service Card 4 -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-          <div class="service-card p-0 overflow-hidden">
-            <img src="image/Laundry Pickup & Delivery 3.jpg" alt="Express Pickup" class="w-100 object-fit-cover"
-              style="height: 200px;">
-            <div class="p-4 d-flex flex-column flex-grow-1">
-              <h4 class="fw-bold mb-2">Same-Day Express Pickup</h4>
-              <p class="text-muted mb-4">Urgent meeting or gala event? Get your clothes collected, sanitized, and
-                delivered within 6 hours.</p>
-              <a href="services.html" class="fw-bold text-primary mt-auto">Learn More <i
+          <div class="service-card p-0 overflow-hidden h-100 d-flex flex-column justify-content-between">
+            <div>
+              <img src="image/Laundry Pickup & Delivery 3.jpg" alt="Express Pickup" class="w-100 object-fit-cover"
+                style="height: 200px;">
+              <div class="p-4">
+                <h4 class="fw-bold mb-2">Same-Day Express Pickup</h4>
+                <p class="text-muted mb-4">Urgent meeting or gala event? Get your clothes collected, sanitized, and
+                  delivered within 6 hours.</p>
+              </div>
+            </div>
+            <div class="px-4 pb-4 mt-auto">
+              <a href="services.html" class="fw-bold text-primary">Learn More <i
                   class="bi bi-arrow-right"></i></a>
             </div>
           </div>
@@ -310,14 +324,18 @@
 
         <!-- Service Card 5 -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-          <div class="service-card p-0 overflow-hidden">
-            <img src="image/Commercial Laundryd.jpg" alt="Commercial Care" class="w-100 object-fit-cover"
-              style="height: 200px;">
-            <div class="p-4 d-flex flex-column flex-grow-1">
-              <h4 class="fw-bold mb-2">Commercial & Hotel Linen</h4>
-              <p class="text-muted mb-4">High-volume industrial laundry solutions for boutique hotels, spas, and luxury
-                dining venues.</p>
-              <a href="services.html" class="fw-bold text-primary mt-auto">Learn More <i
+          <div class="service-card p-0 overflow-hidden h-100 d-flex flex-column justify-content-between">
+            <div>
+              <img src="image/Commercial Laundryd.jpg" alt="Commercial Care" class="w-100 object-fit-cover"
+                style="height: 200px;">
+              <div class="p-4">
+                <h4 class="fw-bold mb-2">Commercial & Hotel Linen</h4>
+                <p class="text-muted mb-4">High-volume industrial laundry solutions for boutique hotels, spas, and luxury
+                  dining venues.</p>
+              </div>
+            </div>
+            <div class="px-4 pb-4 mt-auto">
+              <a href="services.html" class="fw-bold text-primary">Learn More <i
                   class="bi bi-arrow-right"></i></a>
             </div>
           </div>
@@ -325,14 +343,18 @@
 
         <!-- Service Card 6 -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="service-card p-0 overflow-hidden">
-            <img src="image/Commercial Laundry.jpg" alt="Curtain & Carpet" class="w-100 object-fit-cover"
-              style="height: 200px;">
-            <div class="p-4 d-flex flex-column flex-grow-1">
-              <h4 class="fw-bold mb-2">Curtain & Carpet Extraction</h4>
-              <p class="text-muted mb-4">Heavy-duty industrial extraction washing for luxury carpets, drapes, and luxury
-                bedding linens.</p>
-              <a href="services.html" class="fw-bold text-primary mt-auto">Learn More <i
+          <div class="service-card p-0 overflow-hidden h-100 d-flex flex-column justify-content-between">
+            <div>
+              <img src="image/Commercial Laundry.jpg" alt="Curtain & Carpet" class="w-100 object-fit-cover"
+                style="height: 200px;">
+              <div class="p-4">
+                <h4 class="fw-bold mb-2">Curtain & Carpet Extraction</h4>
+                <p class="text-muted mb-4">Heavy-duty industrial extraction washing for luxury carpets, drapes, and luxury
+                  bedding linens.</p>
+              </div>
+            </div>
+            <div class="px-4 pb-4 mt-auto">
+              <a href="services.html" class="fw-bold text-primary">Learn More <i
                   class="bi bi-arrow-right"></i></a>
             </div>
           </div>
@@ -347,7 +369,7 @@
       <div class="text-center mb-5" data-aos="fade-up">
         <span class="badge bg-success-subtle text-success fw-bold px-3 py-2 rounded-pill mb-2">SEAMLESS WORKFLOW</span>
         <h2 class="section-title display-5 fw-bold">How FreshFlow Magic Happens</h2>
-        <p class="section-subtitle text-muted">From doorstep pickup to crisp white-glove delivery in 10 automated steps.
+        <p class="section-subtitle text-muted">From doorstep pickup to crisp white-glove delivery in automated steps.
         </p>
       </div>
 
@@ -432,10 +454,10 @@
               <source src="videos/1362720-hd_1920_1080_30fps.mp4" type="video/mp4">
             </video>
             <div class="position-absolute bottom-0 start-0 w-100 p-4 text-white"
-              style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">
-              <h5 class="fw-bold mb-1"><i class="bi bi-play-circle-fill text-info me-2"></i> Automated Washing Drum
+              style="background: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.2));">
+              <h5 class="fw-bold mb-1 text-white" style="text-shadow: 0 2px 8px rgba(0,0,0,0.8);"><i class="bi bi-play-circle-fill text-info me-2"></i> Automated Washing Drum
                 Action</h5>
-              <small class="text-white-50">Ozone micro-bubble filtration in progress</small>
+              <small class="text-white fw-medium d-block" style="text-shadow: 0 1px 6px rgba(0,0,0,0.8);">Ozone micro-bubble filtration in progress</small>
             </div>
           </div>
         </div>
@@ -549,8 +571,10 @@
               <span>Exclusive Subscription Discounts & Instant Coupons</span>
             </li>
           </ul>
-          <a href="dashboard.html" class="btn btn-fresh-primary py-3 px-5 fs-6"><i class="bi bi-speedometer2 me-2"></i>
-            Launch Customer Dashboard</a>
+          <div class="hero-btn-group">
+            <a href="dashboard.html" class="btn btn-fresh-primary py-3 px-4 fs-6"><i class="bi bi-speedometer2 me-2"></i>
+              Launch Customer Dashboard</a>
+          </div>
         </div>
 
         <div class="col-lg-7" data-aos="fade-left">
@@ -587,12 +611,12 @@
               </div>
             </div>
 
-            <div class="bg-dark p-3 rounded-3 mt-3 d-flex justify-content-between align-items-center">
+            <div class="bg-dark p-3 rounded-3 mt-3 d-flex justify-content-between align-items-center flex-column flex-sm-row gap-3 text-center text-sm-start">
               <div>
                 <small class="text-white-50 d-block">Estimated Delivery Window</small>
                 <strong class="text-info fs-6">Today between 5:00 PM - 7:00 PM</strong>
               </div>
-              <a href="tracking.html" class="btn btn-sm btn-outline-info">View Live Map</a>
+              <a href="tracking.html" class="btn btn-sm btn-outline-info px-4 py-2 rounded-pill">View Live Map</a>
             </div>
           </div>
         </div>
@@ -600,23 +624,24 @@
     </div>
   </section>
 
-  <!-- CTA Banner Section -->
-  <section class="py-5 position-relative text-center text-white overflow-hidden">
-    <!-- Local Background Video for CTA Banner -->
-    <div class="position-absolute top-0 start-0 w-100 h-100 opacity-30 z-0">
-      <video autoplay loop muted playsinline class="w-100 h-100 object-fit-cover">
+  <!-- CTA Banner Section Before Footer -->
+  <section class="py-5 position-relative text-center text-white overflow-hidden" style="background: #0F172A;">
+    <!-- Local Background Video Wrap & Overlay -->
+    <div class="hero-video-wrap">
+      <video autoplay loop muted playsinline>
         <source src="videos/8756891-uhd_4096_2160_25fps.mp4" type="video/mp4">
       </video>
+      <div class="hero-video-overlay"></div>
     </div>
 
-    <div class="container py-4 position-relative z-1">
-      <h2 class="display-5 fw-bold mb-3 text-white">Ready For Pristine, Fresh Garments?</h2>
-      <p class="lead text-white-50 mb-4 max-w-600 mx-auto">Book your first pickup in under 60 seconds and enjoy 20% OFF
+    <div class="container py-4 position-relative z-2">
+      <h2 class="display-5 fw-bold mb-3 text-white" style="text-shadow: 0 4px 16px rgba(0,0,0,0.85);">Ready For Pristine, Fresh Garments?</h2>
+      <p class="lead text-white fw-medium mb-4 max-w-600 mx-auto" style="text-shadow: 0 2px 10px rgba(0,0,0,0.85);">Book your first pickup in under 60 seconds and enjoy 20% OFF
         your first order.</p>
-      <div class="d-flex justify-content-center gap-3 flex-column flex-sm-row">
-        <a href="dashboard.html" class="btn btn-light text-primary fw-bold px-5 py-3 rounded-pill fs-6">Schedule Pickup
+      <div class="hero-btn-group d-flex justify-content-center gap-3 flex-column flex-sm-row">
+        <a href="dashboard.html" class="btn btn-fresh-primary px-5 py-3 rounded-pill fs-6"><i class="bi bi-calendar-check me-2"></i> Schedule Pickup
           Now</a>
-        <a href="pricing.html" class="btn btn-outline-light px-5 py-3 rounded-pill fs-6">View Pricing Calculator</a>
+        <a href="pricing.html" class="btn btn-fresh-outline text-white border-white px-5 py-3 rounded-pill fs-6">View Pricing Calculator</a>
       </div>
     </div>
   </section>
@@ -639,11 +664,11 @@
             Luxury eco-friendly laundry & dry cleaning service powered by state-of-the-art ozone technology and
             white-glove valet pickup.
           </p>
-          <div class="d-flex gap-3">
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" class="btn btn-outline-light btn-sm rounded-circle"><i class="bi bi-linkedin"></i></a>
+          <div class="footer-social-icons">
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
 
