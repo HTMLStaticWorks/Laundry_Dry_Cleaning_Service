@@ -57,9 +57,18 @@
           Dashboard</a>
       </div>
 
-      <button class="hamburger-toggle d-xl-none" id="mobile-drawer-toggle" aria-label="Toggle Navigation">
-        <i class="bi bi-list fs-3"></i>
-      </button>
+      <!-- Mobile/Tablet Navbar Controls (<1200px) -->
+      <div class="mobile-nav-controls d-xl-none d-flex align-items-center gap-2">
+        <button class="btn-icon-toggle" id="nav-mobile-theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          <i class="bi bi-moon-stars-fill text-info" id="nav-mobile-theme-toggle-icon"></i>
+        </button>
+        <button class="btn-icon-toggle" id="nav-mobile-rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+          <i class="bi bi-arrow-left-right text-info"></i>
+        </button>
+        <button class="hamburger-toggle" id="mobile-drawer-toggle" aria-label="Toggle Navigation">
+          <i class="bi bi-list fs-3"></i>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -420,26 +429,26 @@
       <p class="lead text-white-50 max-w-700 mx-auto mb-5">Our commitment to garment excellence and white-glove valet
         service speaks through our metrics.</p>
 
-      <div class="row g-4 mb-5 align-items-stretch">
-        <div class="col-md-3 col-6">
+      <div class="row g-4 mb-5 align-items-stretch justify-content-center">
+        <div class="col-lg-3 col-md-6 col-6">
           <div class="p-4 glass-card-dark rounded-4 verified-results-card">
             <h2 class="display-5 fw-bold text-info font-heading mb-1">99.8%</h2>
             <small class="text-white-50">Stain Removal Rate</small>
           </div>
         </div>
-        <div class="col-md-3 col-6">
+        <div class="col-lg-3 col-md-6 col-6">
           <div class="p-4 glass-card-dark rounded-4 verified-results-card">
             <h2 class="display-5 fw-bold text-success font-heading mb-1">24 Hours</h2>
             <small class="text-white-50">Standard Delivery Time</small>
           </div>
         </div>
-        <div class="col-md-3 col-6">
+        <div class="col-lg-3 col-md-6 col-6">
           <div class="p-4 glass-card-dark rounded-4 verified-results-card">
             <h2 class="display-5 fw-bold text-warning font-heading mb-1">50,000+</h2>
             <small class="text-white-50">Garments Cared For</small>
           </div>
         </div>
-        <div class="col-md-3 col-6">
+        <div class="col-lg-3 col-md-6 col-6">
           <div class="p-4 glass-card-dark rounded-4 verified-results-card">
             <h2 class="display-5 fw-bold text-primary font-heading mb-1">4.98 ★</h2>
             <small class="text-white-50">Average Rating</small>

@@ -291,8 +291,8 @@ function initThemeAndRTL() {
   window.__theme_and_rtl_inited = true;
 
   // Query all buttons matching theme or rtl IDs
-  const themeBtns = document.querySelectorAll('#theme-toggle-btn, #mobile-theme-toggle-btn, .theme-toggle-trigger');
-  const rtlBtns = document.querySelectorAll('#rtl-toggle-btn, #mobile-rtl-toggle-btn, .rtl-toggle-trigger');
+  const themeBtns = document.querySelectorAll('#theme-toggle-btn, #mobile-theme-toggle-btn, #nav-mobile-theme-toggle-btn, .theme-toggle-trigger');
+  const rtlBtns = document.querySelectorAll('#rtl-toggle-btn, #mobile-rtl-toggle-btn, #nav-mobile-rtl-toggle-btn, .rtl-toggle-trigger');
 
   // Load saved theme
   const savedTheme = localStorage.getItem('ff_theme');
@@ -340,16 +340,12 @@ function initThemeAndRTL() {
   });
 
   function updateThemeIcons(isDark) {
-    const desktopIcon = document.getElementById('theme-toggle-icon');
-    const mobileIcon = document.getElementById('mobile-theme-toggle-icon');
+    const themeIcons = document.querySelectorAll('#theme-toggle-icon, #mobile-theme-toggle-icon, #nav-mobile-theme-toggle-icon');
     const mobileText = document.getElementById('mobile-theme-text');
 
-    if (desktopIcon) {
-      desktopIcon.className = isDark ? 'bi bi-sun-fill fs-6 text-warning' : 'bi bi-moon-stars-fill fs-6 text-info';
-    }
-    if (mobileIcon) {
-      mobileIcon.className = isDark ? 'bi bi-sun-fill text-warning' : 'bi bi-moon-stars-fill text-info';
-    }
+    themeIcons.forEach(icon => {
+      icon.className = isDark ? 'bi bi-sun-fill text-warning' : 'bi bi-moon-stars-fill text-info';
+    });
     if (mobileText) {
       mobileText.innerText = isDark ? 'Light Mode' : 'Dark Mode';
     }

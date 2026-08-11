@@ -48,9 +48,18 @@
         <a href="dashboard.html" class="btn btn-fresh-primary py-2 px-3"><i class="bi bi-speedometer2"></i> Dashboard</a>
       </div>
 
-      <button class="hamburger-toggle d-xl-none" id="mobile-drawer-toggle" aria-label="Toggle Navigation">
-        <i class="bi bi-list fs-3"></i>
-      </button>
+      <!-- Mobile/Tablet Navbar Controls (<1200px) -->
+      <div class="mobile-nav-controls d-xl-none d-flex align-items-center gap-2">
+        <button class="btn-icon-toggle" id="nav-mobile-theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          <i class="bi bi-moon-stars-fill text-info" id="nav-mobile-theme-toggle-icon"></i>
+        </button>
+        <button class="btn-icon-toggle" id="nav-mobile-rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+          <i class="bi bi-arrow-left-right text-info"></i>
+        </button>
+        <button class="hamburger-toggle" id="mobile-drawer-toggle" aria-label="Toggle Navigation">
+          <i class="bi bi-list fs-3"></i>
+        </button>
+      </div>
     </div>
   </nav>
 

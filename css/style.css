@@ -2216,4 +2216,164 @@ body.dark-mode .dashboard-sidebar .btn-outline-light:hover {
   }
 }
 
+/* ==========================================================================
+   USER FIXES (Items 1 - 5)
+   ========================================================================== */
+
+/* Item 1: Mobile & Tab View Nav Bar Controls & Drawer Layout Consistency */
+@media (min-width: 1200px) {
+  .mobile-nav-controls,
+  .hamburger-toggle {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .mobile-nav-controls {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+}
+
+.mobile-nav-controls .btn-icon-toggle,
+.mobile-drawer-tools .btn-icon-toggle {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(56, 189, 248, 0.4) !important;
+  color: #38BDF8 !important;
+  background: rgba(14, 165, 233, 0.1) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  font-size: 0.95rem !important;
+  flex-shrink: 0 !important;
+  transition: var(--ff-transition);
+  cursor: pointer !important;
+}
+
+.mobile-nav-controls .btn-icon-toggle:hover,
+.mobile-drawer-tools .btn-icon-toggle:hover {
+  background: rgba(56, 189, 248, 0.25) !important;
+  border-color: #38BDF8 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+.mobile-nav-controls .hamburger-toggle {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(56, 189, 248, 0.4) !important;
+  color: #38BDF8 !important;
+  background: rgba(14, 165, 233, 0.1) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  font-size: 1.1rem !important;
+  flex-shrink: 0 !important;
+  transition: var(--ff-transition);
+  cursor: pointer !important;
+}
+
+.mobile-nav-controls .hamburger-toggle:hover {
+  background: rgba(56, 189, 248, 0.25) !important;
+  border-color: #38BDF8 !important;
+  color: #FFFFFF !important;
+}
+
+/* Item 2: Home Page 2 Verified Results Section Cards Alignment on Tablet View */
+.verified-results-card {
+  min-height: 140px !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 1.5rem 1rem !important;
+}
+
+.verified-results-card h2 {
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem) !important;
+  white-space: nowrap !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Item 3: Pricing Page Button Hover Text Contrast Fix */
+.pricing-card .btn:hover,
+.glass-card .btn:hover,
+.estimator-item-card .btn:hover,
+.btn-fresh-primary:hover,
+.btn-outline-primary:hover,
+.btn-fresh-outline:hover,
+.btn-fresh-accent:hover,
+body.dark-mode .pricing-card .btn:hover,
+body.dark-mode .glass-card .btn:hover,
+body.dark-mode .btn-fresh-primary:hover,
+body.dark-mode .btn-outline-primary:hover {
+  color: #FFFFFF !important;
+}
+
+.pricing-card .btn:hover *,
+.glass-card .btn:hover *,
+.estimator-item-card .btn:hover *,
+.btn-fresh-primary:hover *,
+.btn-outline-primary:hover *,
+.btn-fresh-outline:hover *,
+.btn-fresh-accent:hover * {
+  color: #FFFFFF !important;
+}
+
+/* Item 4: Login & Signup Page Layout & High Contrast Hover Fixes */
+#theme-toggle-btn:hover,
+#rtl-toggle-btn:hover,
+.position-fixed #theme-toggle-btn:hover,
+.position-fixed #rtl-toggle-btn:hover {
+  background: rgba(56, 189, 248, 0.25) !important;
+  border-color: #38BDF8 !important;
+  color: #FFFFFF !important;
+}
+
+#theme-toggle-btn:hover i,
+#rtl-toggle-btn:hover i,
+.position-fixed #theme-toggle-btn:hover i,
+.position-fixed #rtl-toggle-btn:hover i {
+  color: #FFFFFF !important;
+}
+
+.social-login-btn:hover,
+body.dark-mode .social-login-btn:hover {
+  background: rgba(56, 189, 248, 0.25) !important;
+  border-color: #38BDF8 !important;
+  color: #FFFFFF !important;
+}
+
+.social-login-btn:hover i,
+body.dark-mode .social-login-btn:hover i {
+  color: #FFFFFF !important;
+}
+
+/* Item 5: Track Order Page RTL Timeline Connector Line Overlap Fix */
+@media (min-width: 1200px) {
+  html[dir="rtl"] .tracker-step::after {
+    left: auto !important;
+    right: 50% !important;
+    width: 100% !important;
+  }
+
+  html[dir="rtl"] .tracker-step:last-child::after {
+    display: none !important;
+  }
+
+  html[dir="rtl"] .tracker-step:first-child::after {
+    display: block !important;
+    background: var(--ff-primary);
+  }
+}
+
+
 
