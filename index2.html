@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FreshFlow | Next-Gen Eco Laundry & Dry Cleaning (Home V2)</title>
-  <meta name="description" content="Modern split-layout luxury laundry experience with express booking calculator & smart fabric care.">
-  
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%230EA5E9' d='M50 5 C50 5 15 50 15 70 A35 35 0 0 0 85 70 C85 50 50 5 50 5 Z'/><circle cx='40' cy='60' r='6' fill='%23FFFFFF' opacity='0.7'/></svg>" type="image/svg+xml">
+  <meta name="description"
+    content="Modern split-layout luxury laundry experience with express booking calculator & smart fabric care.">
+
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='%230EA5E9' d='M50 5 C50 5 15 50 15 70 A35 35 0 0 0 85 70 C85 50 50 5 50 5 Z'/><circle cx='40' cy='60' r='6' fill='%23FFFFFF' opacity='0.7'/></svg>"
+    type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
   <!-- Page Loader -->
@@ -27,7 +32,7 @@
       <a href="index.html" class="navbar-brand-logo">
         <i class="bi bi-droplet-half text-info"></i> FreshFlow
       </a>
-      
+
       <ul class="navbar-nav d-none d-xl-flex flex-row flex-nowrap gap-2">
         <li class="nav-item"><a href="index.html" class="nav-link-custom">Home 1</a></li>
         <li class="nav-item"><a href="index2.html" class="nav-link-custom active">Home 2</a></li>
@@ -39,14 +44,17 @@
       </ul>
 
       <div class="nav-cta-group d-none d-xl-flex align-items-center flex-nowrap gap-2">
-        <button class="btn btn-sm btn-outline-info rounded-circle p-2" id="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+        <button class="btn btn-sm btn-outline-info rounded-circle p-2" id="theme-toggle-btn"
+          title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
           <i class="bi bi-moon-stars-fill fs-6" id="theme-toggle-icon"></i>
         </button>
-        <button class="btn btn-sm btn-outline-info rounded-circle p-2 me-1" id="rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
+        <button class="btn btn-sm btn-outline-info rounded-circle p-2 me-1" id="rtl-toggle-btn" title="Toggle RTL"
+          aria-label="Toggle RTL">
           <i class="bi bi-arrow-left-right fs-6"></i>
         </button>
         <a href="login.html" class="btn btn-fresh-outline py-2 px-3">Login</a>
-        <a href="dashboard.html" class="btn btn-fresh-primary py-2 px-3"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        <a href="dashboard.html" class="btn btn-fresh-primary py-2 px-3"><i class="bi bi-speedometer2"></i>
+          Dashboard</a>
       </div>
 
       <button class="hamburger-toggle d-xl-none" id="mobile-drawer-toggle" aria-label="Toggle Navigation">
@@ -63,7 +71,8 @@
         <i class="bi bi-droplet-half text-info"></i> FreshFlow
       </a>
       <div class="mobile-drawer-tools">
-        <button class="btn-icon-toggle" id="mobile-theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+        <button class="btn-icon-toggle" id="mobile-theme-toggle-btn" title="Toggle Dark/Light Mode"
+          aria-label="Toggle Theme">
           <i class="bi bi-moon-stars-fill text-info" id="mobile-theme-toggle-icon"></i>
         </button>
         <button class="btn-icon-toggle" id="mobile-rtl-toggle-btn" title="Toggle RTL" aria-label="Toggle RTL">
@@ -76,18 +85,21 @@
     </div>
 
     <div class="mobile-menu-links flex-grow-1">
-      <a href="index.html" class="mobile-menu-link">Home Version 1 <i class="bi bi-chevron-right fs-6"></i></a>
-      <a href="index2.html" class="mobile-menu-link text-info active">Home Version 2 <i class="bi bi-chevron-right fs-6"></i></a>
-      <a href="about.html" class="mobile-menu-link">About Us <i class="bi bi-chevron-right fs-6"></i></a>
-      <a href="services.html" class="mobile-menu-link">Our Services <i class="bi bi-chevron-right fs-6"></i></a>
-      <a href="pricing.html" class="mobile-menu-link">Pricing & Calculator <i class="bi bi-chevron-right fs-6"></i></a>
-      <a href="tracking.html" class="mobile-menu-link">Live Order Tracker <i class="bi bi-chevron-right fs-6"></i></a>
-      <a href="dashboard.html" class="mobile-menu-link text-info fw-bold">Customer Dashboard <i class="bi bi-speedometer2 fs-6"></i></a>
-      <a href="contact.html" class="mobile-menu-link">Contact & Locations <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="index.html" class="mobile-menu-link">Home 1 <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="index2.html" class="mobile-menu-link text-info active">Home 2 <i
+          class="bi bi-chevron-right fs-6"></i></a>
+      <a href="about.html" class="mobile-menu-link">About <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="services.html" class="mobile-menu-link">Services <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="pricing.html" class="mobile-menu-link">Pricing <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="tracking.html" class="mobile-menu-link">Track Order <i class="bi bi-chevron-right fs-6"></i></a>
+      <a href="dashboard.html" class="mobile-menu-link text-info fw-bold">Dashboard <i
+          class="bi bi-speedometer2 fs-6"></i></a>
+      <a href="contact.html" class="mobile-menu-link">Contact <i class="bi bi-chevron-right fs-6"></i></a>
     </div>
 
     <div class="mobile-menu-cta mt-4 pt-3 border-top border-secondary">
-      <a href="dashboard.html" class="btn btn-fresh-primary w-100 mb-2"><i class="bi bi-calendar-check me-2"></i> Schedule Pickup</a>
+      <a href="dashboard.html" class="btn btn-fresh-primary w-100 mb-2"><i class="bi bi-calendar-check me-2"></i>
+        Schedule Pickup</a>
       <div class="d-flex gap-2">
         <a href="login.html" class="btn btn-fresh-outline w-50">Login</a>
         <a href="register.html" class="btn btn-fresh-accent w-50">Register</a>
@@ -112,15 +124,18 @@
           </span>
           <h1 class="hero-title">On-Demand Laundry Delivered To Your Doorstep.</h1>
           <p class="hero-subtitle">
-            Say goodbye to laundry day forever. Our valet drivers pick up your clothes, treat them with eco-friendly hydro-clean technology, and return them crisp & folded within 24 hours.
+            Say goodbye to laundry day forever. Our valet drivers pick up your clothes, treat them with eco-friendly
+            hydro-clean technology, and return them crisp & folded within 24 hours.
           </p>
 
           <!-- Quick Pickup Form Card -->
           <div class="glass-card p-4 rounded-4 shadow-lg mb-4 text-start">
-            <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-geo-alt-fill text-primary me-2"></i> Schedule Express Pickup</h5>
+            <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-geo-alt-fill text-primary me-2"></i> Schedule Express
+              Pickup</h5>
             <form id="quick-pickup-form" class="row g-2">
               <div class="col-md-6">
-                <input type="text" class="form-control rounded-pill py-2 px-3" placeholder="Pickup Address / Zip Code" required>
+                <input type="text" class="form-control rounded-pill py-2 px-3" placeholder="Pickup Address / Zip Code"
+                  required>
               </div>
               <div class="col-md-6">
                 <select class="form-select rounded-pill py-2 px-3">
@@ -130,18 +145,22 @@
                 </select>
               </div>
               <div class="col-12 mt-3 text-center">
-                <button type="submit" class="btn btn-fresh-primary w-100 py-3"><i class="bi bi-calendar-plus me-2"></i> Request Valet Pickup Now</button>
+                <button type="submit" class="btn btn-fresh-primary w-100 py-3"><i class="bi bi-calendar-plus me-2"></i>
+                  Request Valet Pickup Now</button>
               </div>
             </form>
           </div>
         </div>
 
         <div class="col-lg-6" data-aos="fade-left">
-          <div class="position-relative">
-            <img src="image/Laundry Pickup & Delivery 5.jpg" alt="Luxury Pickup Valet" class="img-fluid rounded-4 shadow-lg border border-white w-100 object-fit-cover" style="height: 480px;">
-            
-            <div class="glass-card position-absolute bottom-0 start-0 m-4 p-3 rounded-4 shadow d-flex align-items-center gap-3">
-              <div class="bg-success text-white p-3 rounded-circle flex-shrink-0">
+          <div class="position-relative overflow-hidden rounded-4 shadow-lg border border-white">
+            <img src="image/Laundry Pickup & Delivery 5.jpg" alt="Luxury Pickup Valet"
+              class="img-fluid w-100 object-fit-cover" style="height: 480px;">
+
+            <div class="glass-card hero-satisfaction-card p-3 rounded-4 shadow d-flex align-items-center gap-3">
+              <div
+                class="bg-success text-white rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center"
+                style="width: 48px; height: 48px;">
                 <i class="bi bi-patch-check-fill fs-4"></i>
               </div>
               <div>
@@ -161,7 +180,8 @@
       <div class="text-center mb-5" data-aos="fade-up">
         <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-2">POWERFUL TECH</span>
         <h2 class="section-title display-5 fw-bold">Next-Gen SaaS Laundry Capabilities</h2>
-        <p class="section-subtitle text-muted">Advanced digital features designed for ultimate garment protection and complete peace of mind.</p>
+        <p class="section-subtitle text-muted">Advanced digital features designed for ultimate garment protection and
+          complete peace of mind.</p>
       </div>
 
       <div class="row g-4">
@@ -169,13 +189,15 @@
         <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <div class="glass-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
             <div>
-              <div class="bg-primary-subtle text-primary p-3 rounded-4 width-fit mb-3 fs-3">
+              <div class="bg-primary-subtle text-primary powerful-tech-icon-box">
                 <i class="bi bi-qr-code-scan"></i>
               </div>
               <h5 class="fw-bold mb-2">Smart RFID Tagging</h5>
-              <p class="text-muted small">Every item is scanned with micro RFID chips to prevent mix-ups and provide step-by-step progress updates.</p>
+              <p class="text-muted small">Every item is scanned with micro RFID chips to prevent mix-ups and provide
+                step-by-step progress updates.</p>
             </div>
-            <a href="tracking.html" class="fw-bold text-primary small mt-3">Learn More <i class="bi bi-arrow-right"></i></a>
+            <a href="tracking.html" class="fw-bold text-primary small mt-3">Learn More <i
+                class="bi bi-arrow-right"></i></a>
           </div>
         </div>
 
@@ -183,13 +205,15 @@
         <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
           <div class="glass-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
             <div>
-              <div class="bg-success-subtle text-success p-3 rounded-4 width-fit mb-3 fs-3">
+              <div class="bg-success-subtle text-success powerful-tech-icon-box">
                 <i class="bi bi-truck-front-fill"></i>
               </div>
               <h5 class="fw-bold mb-2">GPS Valet Dispatch</h5>
-              <p class="text-muted small">Real-time driver location map with live SMS alerts when valet is 5 minutes from your door.</p>
+              <p class="text-muted small">Real-time driver location map with live SMS alerts when valet is 5 minutes
+                from your door.</p>
             </div>
-            <a href="tracking.html" class="fw-bold text-success small mt-3">Track Valet <i class="bi bi-arrow-right"></i></a>
+            <a href="tracking.html" class="fw-bold text-success small mt-3">Track Valet <i
+                class="bi bi-arrow-right"></i></a>
           </div>
         </div>
 
@@ -197,13 +221,15 @@
         <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
           <div class="glass-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
             <div>
-              <div class="bg-info-subtle text-info p-3 rounded-4 width-fit mb-3 fs-3">
+              <div class="bg-info-subtle text-info powerful-tech-icon-box">
                 <i class="bi bi-receipt-cutoff"></i>
               </div>
               <h5 class="fw-bold mb-2">Digital Invoicing</h5>
-              <p class="text-muted small">Itemized digital bills with instant PDF downloads, stored card billing, and automated tax reports.</p>
+              <p class="text-muted small">Itemized digital bills with instant PDF downloads, stored card billing, and
+                automated tax reports.</p>
             </div>
-            <a href="dashboard.html" class="fw-bold text-info small mt-3">View Portal <i class="bi bi-arrow-right"></i></a>
+            <a href="dashboard.html" class="fw-bold text-info small mt-3">View Portal <i
+                class="bi bi-arrow-right"></i></a>
           </div>
         </div>
 
@@ -211,13 +237,15 @@
         <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
           <div class="glass-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
             <div>
-              <div class="bg-warning-subtle text-warning p-3 rounded-4 width-fit mb-3 fs-3">
+              <div class="bg-warning-subtle text-warning powerful-tech-icon-box">
                 <i class="bi bi-sliders"></i>
               </div>
               <h5 class="fw-bold mb-2">Custom Care Rules</h5>
-              <p class="text-muted small">Set custom preferences for starch level, eco-fragrance, hang vs fold, and hypoallergenic wash.</p>
+              <p class="text-muted small">Set custom preferences for starch level, eco-fragrance, hang vs fold, and
+                hypoallergenic wash.</p>
             </div>
-            <a href="dashboard.html" class="fw-bold text-warning small mt-3">Set Preferences <i class="bi bi-arrow-right"></i></a>
+            <a href="dashboard.html" class="fw-bold text-warning small mt-3">Set Preferences <i
+                class="bi bi-arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -228,34 +256,47 @@
   <section class="py-5" style="background: var(--ff-bg);">
     <div class="container py-4">
       <div class="text-center mb-5" data-aos="fade-up">
-        <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-2">WHY CHOOSE FRESHFLOW</span>
+        <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-2">WHY CHOOSE
+          FRESHFLOW</span>
         <h2 class="section-title display-5 fw-bold">Traditional Laundromat vs FreshFlow</h2>
-        <p class="section-subtitle text-muted">See how we elevate laundry from a hassle to an effortless luxury experience.</p>
+        <p class="section-subtitle text-muted">See how we elevate laundry from a hassle to an effortless luxury
+          experience.</p>
       </div>
 
       <div class="row g-4">
         <div class="col-md-6" data-aos="fade-right">
           <div class="card p-4 rounded-4 border-danger border-opacity-25 bg-danger-subtle bg-opacity-10 h-100">
-            <img src="image/Washing Machines2.jpg" alt="Laundromat" class="img-fluid rounded-4 mb-3 object-fit-cover" style="height: 200px;">
+            <img src="image/Washing Machines2.jpg" alt="Laundromat" class="img-fluid rounded-4 mb-3 object-fit-cover"
+              style="height: 200px;">
             <h4 class="fw-bold text-danger mb-3"><i class="bi bi-x-circle me-2"></i> Traditional Laundromats</h4>
             <ul class="list-unstyled text-muted">
-              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-dash-circle text-danger"></i> Carrying heavy laundry bags across town</li>
-              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-dash-circle text-danger"></i> Harsh chemicals damaging delicate luxury fabrics</li>
-              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-dash-circle text-danger"></i> Wasting 3-4 hours waiting around machines</li>
-              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-dash-circle text-danger"></i> No order status tracking or guarantees</li>
+              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-dash-circle text-danger"></i> Carrying
+                heavy laundry bags across town</li>
+              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-dash-circle text-danger"></i> Harsh
+                chemicals damaging delicate luxury fabrics</li>
+              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-dash-circle text-danger"></i> Wasting 3-4
+                hours waiting around machines</li>
+              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-dash-circle text-danger"></i> No order
+                status tracking or guarantees</li>
             </ul>
           </div>
         </div>
 
         <div class="col-md-6" data-aos="fade-left">
           <div class="card p-4 rounded-4 border-primary border-2 glass-card h-100 shadow-md">
-            <img src="image/Dry Cleaningb.jpg" alt="FreshFlow Care" class="img-fluid rounded-4 mb-3 object-fit-cover" style="height: 200px;">
-            <h4 class="fw-bold text-primary mb-3"><i class="bi bi-check-circle-fill me-2"></i> FreshFlow Luxury Experience</h4>
+            <img src="image/Dry Cleaningb.jpg" alt="FreshFlow Care" class="img-fluid rounded-4 mb-3 object-fit-cover"
+              style="height: 200px;">
+            <h4 class="fw-bold text-primary mb-3"><i class="bi bi-check-circle-fill me-2"></i> FreshFlow Luxury
+              Experience</h4>
             <ul class="list-unstyled text-dark font-medium">
-              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-success"></i> Free door-to-door valet pickup & delivery</li>
-              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-success"></i> Hydro-carbon eco-solvents gentle on fine silks & wool</li>
-              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-success"></i> Zero effort – schedule in 30 seconds via dashboard</li>
-              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-success"></i> Real-time GPS valet tracking & digital receipts</li>
+              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-success"></i> Free
+                door-to-door valet pickup & delivery</li>
+              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-success"></i>
+                Hydro-carbon eco-solvents gentle on fine silks & wool</li>
+              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-success"></i> Zero
+                effort – schedule in 30 seconds via dashboard</li>
+              <li class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-check-circle-fill text-success"></i>
+                Real-time GPS valet tracking & digital receipts</li>
             </ul>
           </div>
         </div>
@@ -269,47 +310,60 @@
       <div class="text-center mb-5" data-aos="fade-up">
         <span class="badge bg-success-subtle text-success fw-bold px-3 py-2 rounded-pill mb-2">EFFORTLESS PROCESS</span>
         <h2 class="section-title display-5 fw-bold">How FreshFlow Works In 4 Steps</h2>
-        <p class="section-subtitle text-muted">A streamlined 24-hour valet workflow designed for maximum convenience.</p>
+        <p class="section-subtitle text-muted">A streamlined 24-hour valet workflow designed for maximum convenience.
+        </p>
       </div>
 
       <div class="row g-4 text-center">
         <!-- Step 1 -->
         <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <div class="p-4 glass-card rounded-4 h-100 position-relative">
-            <div class="position-absolute top-0 start-50 translate-middle badge bg-primary text-white rounded-circle fs-6 p-2 width-fit" style="width: 36px; height: 36px;">1</div>
+            <div
+              class="position-absolute top-0 start-50 translate-middle badge bg-primary text-white rounded-circle fs-6 p-2 width-fit"
+              style="width: 36px; height: 36px;">1</div>
             <div class="my-3 text-primary fs-1"><i class="bi bi-phone-vibrate"></i></div>
             <h5 class="fw-bold mb-2">1. Book In 30 Seconds</h5>
-            <p class="text-muted small">Select your service, pickup window, and garment notes via our web app or dashboard.</p>
+            <p class="text-muted small">Select your service, pickup window, and garment notes via our web app or
+              dashboard.</p>
           </div>
         </div>
 
         <!-- Step 2 -->
         <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
           <div class="p-4 glass-card rounded-4 h-100 position-relative">
-            <div class="position-absolute top-0 start-50 translate-middle badge bg-primary text-white rounded-circle fs-6 p-2 width-fit" style="width: 36px; height: 36px;">2</div>
+            <div
+              class="position-absolute top-0 start-50 translate-middle badge bg-primary text-white rounded-circle fs-6 p-2 width-fit"
+              style="width: 36px; height: 36px;">2</div>
             <div class="my-3 text-primary fs-1"><i class="bi bi-bag-check-fill"></i></div>
             <h5 class="fw-bold mb-2">2. Doorstep Valet Pickup</h5>
-            <p class="text-muted small">Our driver arrives with a reusable personalized garment bag right at your specified time.</p>
+            <p class="text-muted small">Our driver arrives with a reusable personalized garment bag right at your
+              specified time.</p>
           </div>
         </div>
 
         <!-- Step 3 -->
         <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
           <div class="p-4 glass-card rounded-4 h-100 position-relative">
-            <div class="position-absolute top-0 start-50 translate-middle badge bg-primary text-white rounded-circle fs-6 p-2 width-fit" style="width: 36px; height: 36px;">3</div>
+            <div
+              class="position-absolute top-0 start-50 translate-middle badge bg-primary text-white rounded-circle fs-6 p-2 width-fit"
+              style="width: 36px; height: 36px;">3</div>
             <div class="my-3 text-primary fs-1"><i class="bi bi-droplet-half"></i></div>
             <h5 class="fw-bold mb-2">3. Eco Hydro Care</h5>
-            <p class="text-muted small">Garments are treated with non-toxic ozone washing and precision steam ironing by master craftsmen.</p>
+            <p class="text-muted small">Garments are treated with non-toxic ozone washing and precision steam ironing by
+              master craftsmen.</p>
           </div>
         </div>
 
         <!-- Step 4 -->
         <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
           <div class="p-4 glass-card rounded-4 h-100 position-relative">
-            <div class="position-absolute top-0 start-50 translate-middle badge bg-primary text-white rounded-circle fs-6 p-2 width-fit" style="width: 36px; height: 36px;">4</div>
+            <div
+              class="position-absolute top-0 start-50 translate-middle badge bg-primary text-white rounded-circle fs-6 p-2 width-fit"
+              style="width: 36px; height: 36px;">4</div>
             <div class="my-3 text-primary fs-1"><i class="bi bi-box-seam-fill"></i></div>
             <h5 class="fw-bold mb-2">4. Express 24h Delivery</h5>
-            <p class="text-muted small">Clothes are delivered back to your doorstep, perfectly hung or folded, ready for your wardrobe.</p>
+            <p class="text-muted small">Clothes are delivered back to your doorstep, perfectly hung or folded, ready for
+              your wardrobe.</p>
           </div>
         </div>
       </div>
@@ -331,19 +385,25 @@
           <span class="badge bg-success text-white fw-bold px-3 py-2 rounded-pill mb-3">GREEN SUSTAINABILITY</span>
           <h2 class="display-6 fw-bold mb-3">Zero Perc Chemical Solvents. 100% Eco Pure.</h2>
           <p class="text-muted mb-4">
-            Standard dry cleaning uses PERC (perchloroethylene), a harsh neurotoxin chemical. At FreshFlow, we strictly utilize liquid silicone and biodegradable ozone washing that leaves zero chemical residue while eliminating 99.9% of bacteria.
+            Standard dry cleaning uses PERC (perchloroethylene), a harsh neurotoxin chemical. At FreshFlow, we strictly
+            utilize liquid silicone and biodegradable ozone washing that leaves zero chemical residue while eliminating
+            99.9% of bacteria.
           </p>
-          <div class="row g-3">
+          <div class="row g-3 align-items-stretch">
             <div class="col-6">
-              <div class="p-3 bg-white rounded-3 shadow-sm border">
-                <h5 class="fw-bold text-success mb-1">40% Less Water</h5>
-                <small class="text-muted">Filtered recycled wash loops</small>
+              <div class="p-3 bg-white rounded-3 shadow-sm border h-100 d-flex flex-column justify-content-between">
+                <div>
+                  <h5 class="fw-bold text-success mb-1">40% Less Water</h5>
+                  <small class="text-muted">Filtered recycled wash loops</small>
+                </div>
               </div>
             </div>
             <div class="col-6">
-              <div class="p-3 bg-white rounded-3 shadow-sm border">
-                <h5 class="fw-bold text-info mb-1">Solar Powered</h5>
-                <small class="text-muted">Clean energy processing facilities</small>
+              <div class="p-3 bg-white rounded-3 shadow-sm border h-100 d-flex flex-column justify-content-between">
+                <div>
+                  <h5 class="fw-bold text-info mb-1">Solar Powered</h5>
+                  <small class="text-muted">Clean energy processing facilities</small>
+                </div>
               </div>
             </div>
           </div>
@@ -357,29 +417,30 @@
     <div class="container py-5 text-center" data-aos="fade-up">
       <span class="badge bg-info text-dark fw-bold px-3 py-2 rounded-pill mb-3">VERIFIED RESULTS</span>
       <h2 class="display-5 fw-bold text-white mb-3">Trusted By Thousands Of Luxury Wardrobes</h2>
-      <p class="lead text-white-50 max-w-700 mx-auto mb-5">Our commitment to garment excellence and white-glove valet service speaks through our metrics.</p>
+      <p class="lead text-white-50 max-w-700 mx-auto mb-5">Our commitment to garment excellence and white-glove valet
+        service speaks through our metrics.</p>
 
-      <div class="row g-4 mb-5">
+      <div class="row g-4 mb-5 align-items-stretch">
         <div class="col-md-3 col-6">
-          <div class="p-4 glass-card-dark rounded-4">
+          <div class="p-4 glass-card-dark rounded-4 verified-results-card">
             <h2 class="display-5 fw-bold text-info font-heading mb-1">99.8%</h2>
             <small class="text-white-50">Stain Removal Rate</small>
           </div>
         </div>
         <div class="col-md-3 col-6">
-          <div class="p-4 glass-card-dark rounded-4">
+          <div class="p-4 glass-card-dark rounded-4 verified-results-card">
             <h2 class="display-5 fw-bold text-success font-heading mb-1">24 Hours</h2>
             <small class="text-white-50">Standard Delivery Time</small>
           </div>
         </div>
         <div class="col-md-3 col-6">
-          <div class="p-4 glass-card-dark rounded-4">
+          <div class="p-4 glass-card-dark rounded-4 verified-results-card">
             <h2 class="display-5 fw-bold text-warning font-heading mb-1">50,000+</h2>
             <small class="text-white-50">Garments Cared For</small>
           </div>
         </div>
         <div class="col-md-3 col-6">
-          <div class="p-4 glass-card-dark rounded-4">
+          <div class="p-4 glass-card-dark rounded-4 verified-results-card">
             <h2 class="display-5 fw-bold text-primary font-heading mb-1">4.98 ★</h2>
             <small class="text-white-50">Average Rating</small>
           </div>
@@ -387,8 +448,10 @@
       </div>
 
       <div class="hero-btn-group d-flex justify-content-center gap-3 flex-column flex-sm-row">
-        <a href="dashboard.html" class="btn btn-fresh-primary py-3 px-5 fs-6"><i class="bi bi-calendar-check me-2"></i> Book Your First Pickup</a>
-        <a href="pricing.html" class="btn btn-fresh-outline text-white border-white py-3 px-5 fs-6"><i class="bi bi-calculator me-2"></i> View Pricing & Calculator</a>
+        <a href="dashboard.html" class="btn btn-fresh-primary py-3 px-5 fs-6"><i class="bi bi-calendar-check me-2"></i>
+          Book Your First Pickup</a>
+        <a href="pricing.html" class="btn btn-fresh-outline text-white border-white py-3 px-5 fs-6"><i
+            class="bi bi-calculator me-2"></i> View Pricing & Calculator</a>
       </div>
     </div>
   </section>
@@ -396,7 +459,9 @@
   <!-- Luxury Water Wave Footer -->
   <footer class="water-footer">
     <svg class="wave-svg" viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path d="M0,32L48,42.7C96,53,192,75,288,80C384,85,480,75,576,64C672,53,768,43,864,48C960,53,1056,75,1152,80C1248,85,1344,75,1392,70L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+      <path
+        d="M0,32L48,42.7C96,53,192,75,288,80C384,85,480,75,576,64C672,53,768,43,864,48C960,53,1056,75,1152,80C1248,85,1344,75,1392,70L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+      </path>
     </svg>
 
     <div class="container">
@@ -406,7 +471,8 @@
             <i class="bi bi-droplet-half text-info me-2"></i> FreshFlow
           </a>
           <p class="text-white-50 mb-4">
-            Luxury eco-friendly laundry & dry cleaning service powered by state-of-the-art ozone technology and white-glove valet pickup.
+            Luxury eco-friendly laundry & dry cleaning service powered by state-of-the-art ozone technology and
+            white-glove valet pickup.
           </p>
           <div class="footer-social-icons">
             <a href="#" class="btn btn-outline-light btn-sm"><i class="bi bi-facebook"></i></a>
@@ -443,12 +509,14 @@
           <p class="text-white-50 mb-2"><i class="bi bi-geo-alt text-info me-2"></i> 742 Fifth Avenue, New York, NY</p>
           <p class="text-white-50 mb-2"><i class="bi bi-telephone text-info me-2"></i> +1 (800) 555-FRESH</p>
           <p class="text-white-50 mb-3"><i class="bi bi-envelope text-info me-2"></i> support@freshflowlaundry.com</p>
-          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill"><i class="bi bi-dot"></i> Valet Service Available 24/7</span>
+          <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill"><i class="bi bi-dot"></i> Valet
+            Service Available 24/7</span>
         </div>
       </div>
 
       <div class="border-top border-secondary pt-4 text-center text-white-50">
-        <small>&copy; 2026 FreshFlow Laundry & Dry Cleaning. All Rights Reserved. Crafted for Ultimate Luxury & Cleanliness.</small>
+        <small>&copy; 2026 FreshFlow Laundry & Dry Cleaning. All Rights Reserved. Crafted for Ultimate Luxury &
+          Cleanliness.</small>
       </div>
     </div>
   </footer>
@@ -460,4 +528,5 @@
     AOS.init({ duration: 800, once: true });
   </script>
 </body>
+
 </html>
